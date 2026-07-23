@@ -3,7 +3,15 @@
 # E-Game-C
 ### Neural Mean-Field Game Architecture for Financial Market World Models
 
-**[Paper (NeurIPS 2026 Workshop)](https://github.com/hongjin-he/mathmatical-framework-for-world-models-in-quant-finance/blob/main/paper_draft_v1.pdf)** · **[Theory](https://github.com/hongjin-he/mathmatical-framework-for-world-models-in-quant-finance)** · **[Notebooks](notebooks/)** · **[Demo](#quick-demo)**
+---
+
+## 🎮 [Live Interactive Demo →](https://claude.ai/code/artifact/6404e176-4989-4a5f-af28-4e6672401ab5)
+
+*Live market simulation · Multi-agent MFG ecosystem · Dual noise decomposition · Lyapunov regime monitor*
+
+---
+
+**[Paper (NeurIPS 2026 Workshop)](https://github.com/hongjin-he/mathmatical-framework-for-world-models-in-quant-finance/blob/main/paper_draft_v1.pdf)** · **[Theory](https://github.com/hongjin-he/mathmatical-framework-for-world-models-in-quant-finance)** · **[Notebooks](notebooks/)** · **[Quick Start](#quick-demo)**
 
 *Alpha Flow Research · HongJin HE · HKUST / Stanford IHP · July 2026*
 
