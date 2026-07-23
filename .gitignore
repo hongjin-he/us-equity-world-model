@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv/
+venv/
+data/raw/
+data/processed/
+*.parquet
+*.csv
+*.h5
+.DS_Store

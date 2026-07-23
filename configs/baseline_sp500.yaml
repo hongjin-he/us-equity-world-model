@@ -1,0 +1,42 @@
+simulation:
+  start_date: "2024-01-02"
+  n_steps: 1000
+  tick_freq: "1min"
+  universe: "SP500_TOP50"
+
+agents:
+  quant_funds:
+    - name: "RenaissanceTech_proxy"
+      aum_usd: 5.0e10
+      strategy_style: "ml_alpha"
+      avg_holding_period_days: 2
+      leverage_estimate: 5.0
+
+    - name: "TwoSigma_proxy"
+      aum_usd: 6.0e10
+      strategy_style: "ml_alpha"
+      avg_holding_period_days: 10
+      leverage_estimate: 3.0
+
+    - name: "AQR_proxy"
+      aum_usd: 1.0e11
+      strategy_style: "momentum"
+      avg_holding_period_days: 63
+      leverage_estimate: 1.5
+
+  institutional:
+    - name: "Vanguard_passive"
+      aum_usd: 8.0e12
+      rebalance_freq_days: 90
+
+    - name: "Blackrock_passive"
+      aum_usd: 1.0e13
+      rebalance_freq_days: 90
+
+  retail_aggregate:
+    aum_usd: 5.0e11
+    sentiment_driven: true
+
+market:
+  initial_prices: {}  # populated from data loader
+  transaction_cost_bps: 1
