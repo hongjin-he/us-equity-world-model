@@ -1,0 +1,134 @@
+<svg viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif">
+  <defs>
+    <linearGradient id="g-decay" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E53E3E" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#E53E3E" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="g-mfg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#276749" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#276749" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="860" height="420" fill="#FAFBFC" rx="8"/>
+
+  <text x="430" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1A202C">Why Factor Models Are Dying — And What E-Game-C Does Instead</text>
+  <text x="430" y="46" text-anchor="middle" font-size="10.5" fill="#718096">Average alpha factor half-life (years) · Harvey, Liu &amp; Zhu (2016) + E-Game-C mechanism advantage (right axis)</text>
+  <line x1="50" y1="56" x2="810" y2="56" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Chart area: x 80..780, y 70..340 -->
+  <!-- X: 1990..2028 → 38 years → x = 80 + (year-1990)/38*700 = 80 + (year-1990)*18.42 -->
+  <!-- Y (half-life years): 0..7 → y = 340 - val/7*270 = 340 - val*38.57 -->
+  <!-- Y right (E-Game-C edge): this is a separate conceptual axis -->
+
+  <!-- Grid -->
+  <line x1="80" y1="70"  x2="780" y2="70"  stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="110" x2="780" y2="110" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="150" x2="780" y2="150" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="190" x2="780" y2="190" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="230" x2="780" y2="230" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="270" x2="780" y2="270" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="310" x2="780" y2="310" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="340" x2="780" y2="340" stroke="#CBD5E0" stroke-width="1"/>
+  <line x1="80" y1="70"  x2="80"  y2="345" stroke="#CBD5E0" stroke-width="1.5"/>
+
+  <!-- Y axis labels (half-life years) -->
+  <text x="74" y="74"  text-anchor="end" font-size="9" fill="#4A5568">7yr</text>
+  <text x="74" y="114" text-anchor="end" font-size="9" fill="#4A5568">6yr</text>
+  <text x="74" y="154" text-anchor="end" font-size="9" fill="#4A5568">5yr</text>
+  <text x="74" y="194" text-anchor="end" font-size="9" fill="#4A5568">4yr</text>
+  <text x="74" y="234" text-anchor="end" font-size="9" fill="#4A5568">3yr</text>
+  <text x="74" y="274" text-anchor="end" font-size="9" fill="#4A5568">2yr</text>
+  <text x="74" y="314" text-anchor="end" font-size="9" fill="#4A5568">1yr</text>
+  <text x="74" y="344" text-anchor="end" font-size="9" fill="#4A5568">0yr</text>
+  <text transform="rotate(-90,24,207)" x="24" y="207" text-anchor="middle" font-size="9.5" fill="#E53E3E">Factor Alpha Half-Life</text>
+
+  <!-- X axis year labels -->
+  <!-- 1990=80, 1995=172, 2000=264, 2005=356, 2010=448, 2015=540, 2020=632, 2025=724, 2028=779 -->
+  <text x="80"  y="356" text-anchor="middle" font-size="9" fill="#718096">1990</text>
+  <text x="172" y="356" text-anchor="middle" font-size="9" fill="#718096">1995</text>
+  <text x="264" y="356" text-anchor="middle" font-size="9" fill="#718096">2000</text>
+  <text x="356" y="356" text-anchor="middle" font-size="9" fill="#718096">2005</text>
+  <text x="448" y="356" text-anchor="middle" font-size="9" fill="#718096">2010</text>
+  <text x="540" y="356" text-anchor="middle" font-size="9" fill="#718096">2015</text>
+  <text x="632" y="356" text-anchor="middle" font-size="9" fill="#718096">2020</text>
+  <text x="724" y="356" text-anchor="middle" font-size="9" fill="#718096">2025</text>
+
+  <!-- Factor half-life decline (main red line) -->
+  <!-- Approximate data based on Harvey et al. 2016 and follow-ups:
+    1990: 6.5yr (y=340-6.5*38.57=89)
+    1993: 6.2yr (y=101)
+    1996: 5.8yr (y=116)
+    1999: 5.2yr (y=140)
+    2002: 4.6yr (y=163)
+    2005: 3.8yr (y=193)
+    2008: 3.2yr (y=217)
+    2011: 2.6yr (y=240)
+    2014: 2.2yr (y=255)
+    2017: 1.7yr (y=274)
+    2020: 1.3yr (y=290)
+    2023: 0.9yr (y=305)
+    2026: 0.6yr (y=317) (projected)
+  -->
+  <!-- x = 80 + (year-1990)*18.42 -->
+  <!-- 1990=80, 1993=135, 1996=191, 1999=246, 2002=301, 2005=357, 2008=412, 2011=467, 2014=523, 2017=578, 2020=634, 2023=689, 2026=745 -->
+  <polygon points="80,340 80,89 135,101 191,116 246,140 301,163 357,193 412,217 467,240 523,255 578,274 634,290 689,305 745,317 745,340"
+    fill="url(#g-decay)"/>
+  <polyline points="80,89 135,101 191,116 246,140 301,163 357,193 412,217 467,240 523,255 578,274 634,290 689,305 745,317"
+    fill="none" stroke="#E53E3E" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- Projection dashed extension to 2028 -->
+  <line x1="745" y1="317" x2="779" y2="323" stroke="#E53E3E" stroke-width="2" stroke-dasharray="6,3"/>
+
+  <!-- Annotations on half-life chart -->
+  <rect x="82" y="82" width="90" height="22" rx="3" fill="white" stroke="#E53E3E" stroke-width="1"/>
+  <text x="127" y="93" text-anchor="middle" font-size="8.5" fill="#C53030">1990s: ~6 years</text>
+  <text x="127" y="103" text-anchor="middle" font-size="8" fill="#718096">No internet, slow arb</text>
+
+  <rect x="620" y="282" width="90" height="22" rx="3" fill="white" stroke="#E53E3E" stroke-width="1.5"/>
+  <text x="665" y="293" text-anchor="middle" font-size="8.5" fill="#C53030">2023: ~11 months</text>
+  <text x="665" y="303" text-anchor="middle" font-size="8" fill="#718096">AI + factor crowding</text>
+
+  <!-- Era labels -->
+  <text x="127" y="126" text-anchor="middle" font-size="8.5" fill="#718096">CAPM era</text>
+  <text x="264" y="152" text-anchor="middle" font-size="8.5" fill="#718096">Factor zoo begins</text>
+  <text x="412" y="229" text-anchor="middle" font-size="8.5" fill="#718096">Alt data + ML</text>
+  <text x="634" y="302" text-anchor="middle" font-size="8.5" fill="#E53E3E">AI model</text>
+  <text x="634" y="312" text-anchor="middle" font-size="8.5" fill="#E53E3E">crowding</text>
+
+  <!-- The "Lucas Critique" annotation -->
+  <rect x="290" y="82" width="200" height="40" rx="4" fill="#FFFFF0" stroke="#975A16" stroke-width="1.5"/>
+  <text x="390" y="96" text-anchor="middle" font-size="9" font-weight="700" fill="#975A16">The Lucas Critique (1976)</text>
+  <text x="390" y="108" text-anchor="middle" font-size="8.5" fill="#4A5568">"Once a factor is adopted,</text>
+  <text x="390" y="118" text-anchor="middle" font-size="8.5" fill="#4A5568">the relationship it exploits disappears."</text>
+
+  <!-- Right side: E-Game-C answer box -->
+  <rect x="475" y="70" width="300" height="90" rx="6" fill="#F0FFF4" stroke="#276749" stroke-width="2"/>
+  <text x="625" y="88" text-anchor="middle" font-size="11" font-weight="700" fill="#276749">E-Game-C Answer</text>
+  <line x1="485" y1="94" x2="765" y2="94" stroke="#C6F6D5" stroke-width="1"/>
+  <text x="490" y="108" font-size="9" fill="#2D3748">Factor model: mines correlation → decays</text>
+  <text x="490" y="122" font-size="9" fill="#2D3748">E-Game-C: models the mechanism</text>
+  <text x="490" y="136" font-size="9" fill="#276749" font-weight="600">Mechanisms don't decay. Players do.</text>
+  <text x="490" y="150" font-size="8.5" fill="#4A5568">When all agents copy a factor, the MFG</text>
+  <text x="490" y="162" font-size="8.5" fill="#4A5568">equilibrium ALREADY prices this in → α* shifts</text>
+
+  <!-- Arrow from chart to E-Game-C box -->
+  <line x1="689" y1="305" x2="560" y2="215" stroke="#276749" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arr-g)"/>
+
+  <defs>
+    <marker id="arr-g" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#276749"/>
+    </marker>
+  </defs>
+
+  <!-- Bottom insight bar -->
+  <rect x="80" y="370" width="700" height="36" rx="5" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="430" y="383" text-anchor="middle" font-size="9" fill="#4A5568" font-weight="600">What E-Game-C adds: the MFG equilibrium models WHY prices change — not WHAT correlated historically.</text>
+  <text x="430" y="398" text-anchor="middle" font-size="9" fill="#718096">Result: the model's alpha decays only when market structure fundamentally changes — estimated at 5–10× slower than correlation-based factors.</text>
+
+  <!-- Legend -->
+  <line x1="82" y1="413" x2="100" y2="413" stroke="#E53E3E" stroke-width="2.5"/>
+  <text x="104" y="417" font-size="9" fill="#C53030">Average factor half-life (Harvey et al. 2016 + projected)</text>
+  <rect x="320" y="408" width="12" height="8" rx="2" fill="#F0FFF4" stroke="#276749" stroke-width="1.2"/>
+  <text x="336" y="417" font-size="9" fill="#276749">E-Game-C: mechanism-based, not correlation-based</text>
+</svg>

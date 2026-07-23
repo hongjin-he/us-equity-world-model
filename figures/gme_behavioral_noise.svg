@@ -1,0 +1,167 @@
+<svg viewBox="0 0 900 440" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif">
+  <defs>
+    <linearGradient id="g-phys" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4A90D9" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#4A90D9" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="g-beh" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E2711D" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#E2711D" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="g-gme" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#276749" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#276749" stop-opacity="0.01"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="440" fill="#FAFBFC" rx="8"/>
+  <text x="450" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1A202C">Demo 2 — Dual Noise Decomposition: The GameStop Mania (Jan 2021)</text>
+  <text x="450" y="46" text-anchor="middle" font-size="10.5" fill="#718096">Physical σ_τ (Brownian) barely moved · Behavioral ν_η (Lévy jumps) went parabolic · This is the Cramér-Rao Theorem in action</text>
+  <line x1="60" y1="56" x2="840" y2="56" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Two panels: top (GME price) and bottom (noise decomposition) -->
+  <!-- Top panel: y 70..210, bottom panel: y 230..370 -->
+
+  <!-- PANEL LABELS -->
+  <rect x="82" y="70" width="116" height="18" rx="3" fill="#F0FFF4" stroke="#276749" stroke-width="1"/>
+  <text x="140" y="83" text-anchor="middle" font-size="9.5" font-weight="600" fill="#276749">GME Stock Price</text>
+
+  <rect x="82" y="232" width="142" height="18" rx="3" fill="#EBF8FF" stroke="#4A90D9" stroke-width="1"/>
+  <text x="153" y="245" text-anchor="middle" font-size="9.5" font-weight="600" fill="#2B6CB0">Noise Decomposition</text>
+
+  <!-- Panel 1 grid -->
+  <line x1="80" y1="96"  x2="820" y2="96"  stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="130" x2="820" y2="130" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="164" x2="820" y2="164" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="200" x2="820" y2="200" stroke="#EDF2F7" stroke-width="1"/>
+
+  <!-- Panel 2 grid -->
+  <line x1="80" y1="258" x2="820" y2="258" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="286" x2="820" y2="286" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="314" x2="820" y2="314" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="342" x2="820" y2="342" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="370" x2="820" y2="370" stroke="#CBD5E0" stroke-width="1"/>
+
+  <!-- Axes -->
+  <line x1="80" y1="70" x2="80" y2="375" stroke="#CBD5E0" stroke-width="1.5"/>
+  <line x1="820" y1="70" x2="820" y2="375" stroke="#CBD5E0" stroke-width="0.5"/>
+  <line x1="80" y1="215" x2="820" y2="215" stroke="#CBD5E0" stroke-width="1.5"/>
+
+  <!-- X axis: Jan 4 to Feb 12, 2021 → 27 trading days → x 80..820 = 740px, step=740/27=27.4px -->
+  <!-- Key dates:
+    Jan 4 (Fri): x=80
+    Jan 11 (Mon): x=80 + 5*27.4 = 217
+    Jan 13 (Wed): x=80 + 7*27.4 = 272
+    Jan 20 (Wed): x=80 + 12*27.4 = 409 → market closed MLK
+    Jan 22 (Fri): x=80 + 13*27.4 = 436
+    Jan 25 (Mon): x=80 + 14*27.4 = 464
+    Jan 26 (Tue): x=80 + 15*27.4 = 491
+    Jan 27 (Wed): x=80 + 16*27.4 = 518
+    Jan 28 (Thu): x=80 + 17*27.4 = 546
+    Jan 29 (Fri): x=80 + 18*27.4 = 573
+    Feb 1 (Mon): x=80 + 19*27.4 = 600
+    Feb 5 (Fri): x=80 + 23*27.4 = 710
+    Feb 12 (Fri): x=80 + 27*27.4 = 820
+  -->
+  <text x="80"  y="388" text-anchor="middle" font-size="8.5" fill="#718096">Jan 4</text>
+  <text x="217" y="388" text-anchor="middle" font-size="8.5" fill="#718096">Jan 11</text>
+  <text x="464" y="388" text-anchor="middle" font-size="8.5" fill="#718096">Jan 25</text>
+  <text x="546" y="388" text-anchor="middle" font-size="8.5" fill="#718096">Jan 28</text>
+  <text x="600" y="388" text-anchor="middle" font-size="8.5" fill="#718096">Feb 1</text>
+  <text x="710" y="388" text-anchor="middle" font-size="8.5" fill="#718096">Feb 5</text>
+  <text x="820" y="388" text-anchor="middle" font-size="8.5" fill="#718096">Feb 12</text>
+  <text x="450" y="400" text-anchor="middle" font-size="8.5" fill="#A0AEC0">January – February 2021</text>
+
+  <!-- GME Price Y axis (left): 0..500 → y=200-0=200, y=96 at 500 -->
+  <!-- y = 200 - GME/500 * (200-96) = 200 - GME*0.208 -->
+  <text x="74" y="100" text-anchor="end" font-size="8.5" fill="#276749">$500</text>
+  <text x="74" y="134" text-anchor="end" font-size="8.5" fill="#276749">$350</text>
+  <text x="74" y="168" text-anchor="end" font-size="8.5" fill="#276749">$200</text>
+  <text x="74" y="204" text-anchor="end" font-size="8.5" fill="#276749">$50</text>
+
+  <!-- GME Price data (approximate):
+    Jan 4: $17 → y=200-17*0.208=196.5
+    Jan 11: $19 → y=196
+    Jan 13: $31 → y=194
+    Jan 22: $65 → y=186
+    Jan 25: $76 → y=184
+    Jan 26: $148 → y=169
+    Jan 27: $347 → y=128
+    Jan 28: $483 → y=100 (intraday halt, ends $193)
+    Jan 29: $325 → y=132
+    Feb 1: $225 → y=153
+    Feb 5: $63 → y=187
+    Feb 12: $51 → y=189
+  -->
+  <polygon points="80,200 80,197 217,196 272,194 436,186 464,184 491,169 518,128 546,100 573,132 600,153 710,187 820,189 820,215 80,215"
+    fill="url(#g-gme)"/>
+  <polyline points="80,197 217,196 272,194 436,186 464,184 491,169 518,128 546,100 573,132 600,153 710,187 820,189"
+    fill="none" stroke="#276749" stroke-width="2.2" stroke-linejoin="round"/>
+
+  <!-- Jan 28 peak annotation -->
+  <circle cx="546" cy="100" r="5" fill="#276749"/>
+  <rect x="552" y="88" width="68" height="20" rx="3" fill="#F0FFF4" stroke="#276749" stroke-width="1.2"/>
+  <text x="586" y="102" text-anchor="middle" font-size="8.5" font-weight="700" fill="#276749">$483 (+1700%)</text>
+
+  <!-- Noise Decomposition Panel -->
+  <!-- Physical σ_τ: approximately constant 0.03-0.05/day = 3-5% -->
+  <!-- Behavioral ν_η: baseline ~0.02, then EXPLODES during mania -->
+  <!-- Y: 0..1.5 (normalized) → y = 370 - val*(370-230)/1.5 = 370 - val*93.3 -->
+  <!-- σ_τ values (normalized, max ~0.06, scale 0-1.5): 0.04→y=366, all around 0.04-0.06 -->
+  <!-- ν_η values: 0.02→y=368, then spikes to 1.4→y=239 on Jan 27-28 -->
+
+  <!-- Physical volatility σ_τ (blue, stays flat) -->
+  <!-- y = 370 - val*93.3 where val is 0-1.5 -->
+  <!-- σ_τ ≈ 0.04-0.07 throughout (stays between y=363 and y=363) -->
+  <polygon points="80,370 80,364 217,363 272,362 436,361 464,360 491,359 518,357 546,355 573,358 600,360 710,362 820,363 820,370"
+    fill="url(#g-phys)"/>
+  <polyline points="80,364 217,363 272,362 436,361 464,360 491,359 518,357 546,355 573,358 600,360 710,362 820,363"
+    fill="none" stroke="#4A90D9" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- Behavioral noise ν_η (orange, SPIKES) -->
+  <!-- baseline ~0.03, then: Jan 22: 0.12, Jan 25: 0.22, Jan 26: 0.45, Jan 27: 1.02, Jan 28: 1.38, Jan 29: 0.78, Feb1: 0.42, Feb5: 0.11, Feb12: 0.04 -->
+  <!-- y = 370 - val*93.3 -->
+  <!-- 0.03→369, 0.12→359, 0.22→349, 0.45→328, 1.02→275, 1.38→241, 0.78→297, 0.42→331, 0.11→360, 0.04→366 -->
+  <polygon points="80,370 80,369 217,369 272,368 436,359 464,349 491,328 518,275 546,241 573,297 600,331 710,360 820,366 820,370"
+    fill="url(#g-beh)"/>
+  <polyline points="80,369 217,369 272,368 436,359 464,349 491,328 518,275 546,241 573,297 600,331 710,360 820,366"
+    fill="none" stroke="#E2711D" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- ν_η peak annotation -->
+  <circle cx="546" cy="241" r="5" fill="#E2711D"/>
+  <rect x="548" y="225" width="105" height="26" rx="3" fill="#FFFFF0" stroke="#E2711D" stroke-width="1.5"/>
+  <text x="600" y="238" text-anchor="middle" font-size="9" font-weight="700" fill="#C05621">ν_η × 46 spike</text>
+  <text x="600" y="249" text-anchor="middle" font-size="8" fill="#4A5568">Retail herding · SHORT SQUEEZE</text>
+
+  <!-- σ_τ annotation (pointing to flat line) -->
+  <rect x="660" y="346" width="80" height="20" rx="3" fill="#EBF8FF" stroke="#4A90D9" stroke-width="1"/>
+  <text x="700" y="360" text-anchor="middle" font-size="8.5" fill="#2C5282">σ_τ flat (fundamental)</text>
+
+  <!-- Vertical lines for key dates in both panels -->
+  <line x1="518" y1="70" x2="518" y2="370" stroke="#E2711D" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.5"/>
+  <line x1="546" y1="70" x2="546" y2="370" stroke="#E53E3E" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.7"/>
+  <text x="521" y="115" font-size="8" fill="#E2711D">Jan 27</text>
+  <text x="549" y="115" font-size="8" fill="#E53E3E">Jan 28</text>
+
+  <!-- The KEY INSIGHT box -->
+  <rect x="82" y="414" width="736" height="18" rx="4" fill="#FFFFF0" stroke="#E2711D" stroke-width="1.5"/>
+  <text x="450" y="427" text-anchor="middle" font-size="9.5" fill="#975A16" font-weight="600">
+    Key insight: Physical volatility σ_τ (fundamentals) was flat. Behavioral noise ν_η (herding) rose 46×. More data cannot reduce ν_η — you must model the mechanism (Theorem 1: Cramér-Rao bound).
+  </text>
+
+  <!-- Legend panel 2 -->
+  <line x1="82" y1="232" x2="820" y2="232" stroke="#E2E8F0" stroke-width="1"/>
+  <!-- Y axis labels for noise panel -->
+  <text x="74" y="234" text-anchor="end" font-size="8.5" fill="#4A5568">1.5</text>
+  <text x="74" y="262" text-anchor="end" font-size="8.5" fill="#4A5568">1.2</text>
+  <text x="74" y="290" text-anchor="end" font-size="8.5" fill="#4A5568">0.9</text>
+  <text x="74" y="318" text-anchor="end" font-size="8.5" fill="#4A5568">0.6</text>
+  <text x="74" y="346" text-anchor="end" font-size="8.5" fill="#4A5568">0.3</text>
+  <text x="74" y="374" text-anchor="end" font-size="8.5" fill="#4A5568">0.0</text>
+
+  <!-- panel legend -->
+  <line x1="245" y1="406" x2="262" y2="406" stroke="#4A90D9" stroke-width="2"/>
+  <text x="265" y="410" font-size="8.5" fill="#2C5282">Physical σ_τ (Brownian, fundamental)</text>
+  <line x1="455" y1="406" x2="472" y2="406" stroke="#E2711D" stroke-width="2.5"/>
+  <text x="475" y="410" font-size="8.5" fill="#C05621">Behavioral ν_η (Lévy jumps, sentiment)</text>
+</svg>

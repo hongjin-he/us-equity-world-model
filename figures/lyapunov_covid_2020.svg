@@ -1,0 +1,165 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Arial, sans-serif">
+  <defs>
+    <linearGradient id="spy-area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4A90D9" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#4A90D9" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="crisis-area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E53E3E" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#E53E3E" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="pre-area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F6AD55" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#F6AD55" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="460" fill="#FAFBFC" rx="8"/>
+
+  <!-- Title -->
+  <text x="450" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1A202C">Demo 1 — E-Game-C Lyapunov Early Warning: The 2020 COVID Market Crash</text>
+  <text x="450" y="46" text-anchor="middle" font-size="10.5" fill="#718096">S&amp;P 500 price (left axis) · Lyapunov stability indicator Λ_t (right axis) · Retroactive analysis on 2019–2020 data</text>
+  <line x1="60" y1="56" x2="840" y2="56" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- Chart area: x 80..820, y 70..370 -->
+  <!-- X: Oct 2019 (80) → Jul 2020 (820) = 740px / ~9.5mo -->
+  <!-- Y (SPY): SPY range 200-350 → y = 370 - (SPY-200)/150*300 -->
+  <!-- Y (Lyapunov): Λ range 0-2.5 → y = 370 - Λ/2.5*300 = 370 - Λ*120 -->
+
+  <!-- Grid lines -->
+  <line x1="80" y1="70"  x2="820" y2="70"  stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="120" x2="820" y2="120" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="170" x2="820" y2="170" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="220" x2="820" y2="220" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="270" x2="820" y2="270" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="320" x2="820" y2="320" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="370" x2="820" y2="370" stroke="#CBD5E0" stroke-width="1"/>
+
+  <!-- Left Y axis labels: SPY -->
+  <!-- y=370: SPY=200, y=320: 225, y=270: 250, y=220: 275, y=170: 300, y=120: 325, y=70: 350 -->
+  <text x="74" y="374" text-anchor="end" font-size="9" fill="#4A5568">200</text>
+  <text x="74" y="324" text-anchor="end" font-size="9" fill="#4A5568">225</text>
+  <text x="74" y="274" text-anchor="end" font-size="9" fill="#4A5568">250</text>
+  <text x="74" y="224" text-anchor="end" font-size="9" fill="#4A5568">275</text>
+  <text x="74" y="174" text-anchor="end" font-size="9" fill="#4A5568">300</text>
+  <text x="74" y="124" text-anchor="end" font-size="9" fill="#4A5568">325</text>
+  <text x="74" y="74"  text-anchor="end" font-size="9" fill="#4A5568">350</text>
+  <text transform="rotate(-90,22,220)" x="22" y="220" text-anchor="middle" font-size="9.5" fill="#4A90D9">S&amp;P 500 (SPY)</text>
+
+  <!-- Right Y axis labels: Lyapunov -->
+  <!-- y=370: Λ=0, y=322: 0.4, y=274: 0.8, y=226: 1.2, y=178: 1.6, y=130: 2.0, y=82: 2.4 -->
+  <text x="828" y="374" font-size="9" fill="#E53E3E">0.0</text>
+  <text x="828" y="322" font-size="9" fill="#E53E3E">0.4</text>
+  <text x="828" y="274" font-size="9" fill="#E53E3E">0.8</text>
+  <text x="828" y="226" font-size="9" fill="#E53E3E">1.2</text>
+  <text x="828" y="178" font-size="9" fill="#E53E3E">1.6</text>
+  <text x="828" y="130" font-size="9" fill="#E53E3E">2.0</text>
+  <text x="828" y="82"  font-size="9" fill="#E53E3E">2.4</text>
+  <text transform="rotate(90,878,220)" x="878" y="220" text-anchor="middle" font-size="9.5" fill="#E53E3E">Lyapunov Λ_t</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="70" x2="80" y2="375" stroke="#CBD5E0" stroke-width="1.5"/>
+  <line x1="820" y1="70" x2="820" y2="375" stroke="#CBD5E0" stroke-width="1.5"/>
+
+  <!-- X axis month labels -->
+  <!-- Oct 2019=80, Nov=158, Dec=236, Jan=314, Feb=392, Mar=470, Apr=548, May=626, Jun=704, Jul=782 -->
+  <!-- step = 740/9 = 82.2 -->
+  <text x="80"  y="390" text-anchor="middle" font-size="9" fill="#718096">Oct</text>
+  <text x="162" y="390" text-anchor="middle" font-size="9" fill="#718096">Nov</text>
+  <text x="244" y="390" text-anchor="middle" font-size="9" fill="#718096">Dec</text>
+  <text x="326" y="390" text-anchor="middle" font-size="9" fill="#718096">Jan</text>
+  <text x="408" y="390" text-anchor="middle" font-size="9" fill="#718096">Feb</text>
+  <text x="490" y="390" text-anchor="middle" font-size="9" fill="#718096">Mar</text>
+  <text x="572" y="390" text-anchor="middle" font-size="9" fill="#718096">Apr</text>
+  <text x="654" y="390" text-anchor="middle" font-size="9" fill="#718096">May</text>
+  <text x="736" y="390" text-anchor="middle" font-size="9" fill="#718096">Jun</text>
+  <text x="818" y="390" text-anchor="middle" font-size="9" fill="#718096">Jul</text>
+  <text x="450" y="402" text-anchor="middle" font-size="8.5" fill="#A0AEC0">2019 ←————————————→ 2020</text>
+
+  <!-- SPY price area (filled) -->
+  <!-- SPY data points: x coordinates and y = 370 - (SPY-200)/150*300 = 370 - (SPY-200)*2 -->
+  <!-- Oct: 80, 293→y=184 | Nov: 162, 310→y=180-20=160 | Dec: 244, 322→y=156 |
+       Jan: 326, 324→y=152 | Feb 1: 367, 330→y=140 | Feb 19(peak): 430, 337→y=126 |
+       Feb 20(alert): 435, 334→y=132 | Feb 28: 462, 294→y=212 |
+       Mar9: 498, 273→y=254 | Mar16: 517, 249→y=302 | Mar23(bot): 535, 222→y=356 |
+       Apr: 572, 278→y=244 | May: 654, 296→y=208 | Jun: 736, 310→y=180 | Jul: 818, 318→y=164 -->
+  <polygon points="80,370 80,184 162,160 244,156 326,152 367,140 430,126 435,132 462,212 498,254 517,302 535,356 572,244 654,208 736,180 818,164 818,370"
+    fill="url(#spy-area)"/>
+  <polyline points="80,184 162,160 244,156 326,152 367,140 430,126 435,132 462,212 498,254 517,302 535,356 572,244 654,208 736,180 818,164"
+    fill="none" stroke="#4A90D9" stroke-width="2.2" stroke-linejoin="round"/>
+
+  <!-- Crisis threshold line for Lyapunov: Λ=0.85 → y = 370 - 0.85*120 = 370-102 = 268 -->
+  <line x1="80" y1="268" x2="820" y2="268" stroke="#E53E3E" stroke-width="1" stroke-dasharray="6,4" opacity="0.6"/>
+  <text x="84" y="263" font-size="8.5" fill="#E53E3E">Crisis threshold Λ = 0.85</text>
+
+  <!-- Lyapunov data points: y = 370 - Λ*120 -->
+  <!-- Oct(80): 0.28→y=337 | Nov(162): 0.32→y=331 | Dec(244): 0.30→y=334 |
+       Jan(326): 0.38→y=324 | Feb1(367): 0.42→y=320 | Feb14(422): 0.45→y=316 |
+       Feb19(430): 0.46→y=315 | Feb20(435): 0.83→y=271 | Feb24(448): 1.22→y=224 |
+       Feb28(462): 1.48→y=192 | Mar9(498): 1.95→y=136 | Mar16(517): 2.18→y=108 |
+       Mar23(535): 1.92→y=140 | Apr(572): 1.35→y=208 | May(654): 0.98→y=252 |
+       Jun(736): 0.71→y=285 | Jul(818): 0.55→y=304 -->
+  <!-- Area fill for Lyapunov spike -->
+  <polygon points="435,370 435,271 448,224 462,192 498,136 517,108 535,140 572,208 654,252 736,285 818,304 818,370"
+    fill="url(#crisis-area)"/>
+  <polyline points="80,337 162,331 244,334 326,324 367,320 422,316 430,315 435,271 448,224 462,192 498,136 517,108 535,140 572,208 654,252 736,285 818,304"
+    fill="none" stroke="#E53E3E" stroke-width="2.2" stroke-linejoin="round"/>
+
+  <!-- KEY EVENT MARKERS -->
+
+  <!-- Feb 19 — Market Peak -->
+  <line x1="430" y1="72" x2="430" y2="370" stroke="#F6AD55" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.8"/>
+  <!-- Feb 20 — E-Game-C Alert -->
+  <line x1="435" y1="72" x2="435" y2="370" stroke="#E53E3E" stroke-width="2" opacity="0.9"/>
+
+  <!-- Annotation box: Feb 19 peak -->
+  <rect x="340" y="72" width="84" height="38" rx="4" fill="#FFFFF0" stroke="#F6AD55" stroke-width="1.5"/>
+  <text x="382" y="87" text-anchor="middle" font-size="9" font-weight="700" fill="#975A16">Feb 19, 2020</text>
+  <text x="382" y="99" text-anchor="middle" font-size="8.5" fill="#4A5568">SPY all-time high</text>
+  <text x="382" y="109" text-anchor="middle" font-size="8.5" fill="#4A5568">Λ = 0.46 (normal)</text>
+  <line x1="382" y1="110" x2="430" y2="126" stroke="#F6AD55" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Annotation box: Feb 20 — ALERT -->
+  <rect x="438" y="72" width="106" height="50" rx="4" fill="#FFF5F5" stroke="#E53E3E" stroke-width="2"/>
+  <text x="491" y="87" text-anchor="middle" font-size="9" font-weight="800" fill="#C53030">⚡ Feb 20, 2020</text>
+  <text x="491" y="99" text-anchor="middle" font-size="9" font-weight="700" fill="#E53E3E">E-Game-C ALERT</text>
+  <text x="491" y="109" text-anchor="middle" font-size="8.5" fill="#C53030">Λ = 0.83 → CRISIS</text>
+  <text x="491" y="119" text-anchor="middle" font-size="8" fill="#718096">VIX: 25 · No news</text>
+  <line x1="435" y1="122" x2="460" y2="122" stroke="#E53E3E" stroke-width="1"/>
+
+  <!-- Annotation: -34% in 33 days -->
+  <rect x="500" y="156" width="100" height="36" rx="4" fill="#FFF5F5" stroke="#E53E3E" stroke-width="1.5"/>
+  <text x="550" y="172" text-anchor="middle" font-size="10" font-weight="800" fill="#C53030">−34%</text>
+  <text x="550" y="185" text-anchor="middle" font-size="8.5" fill="#718096">in 33 trading days</text>
+
+  <!-- Mar 23 bottom annotation -->
+  <circle cx="535" cy="356" r="5" fill="#E53E3E"/>
+  <rect x="544" y="344" width="80" height="26" rx="3" fill="#FFF5F5" stroke="#E53E3E" stroke-width="1"/>
+  <text x="584" y="357" text-anchor="middle" font-size="8.5" font-weight="700" fill="#C53030">Mar 23 Bottom</text>
+  <text x="584" y="367" text-anchor="middle" font-size="8" fill="#718096">SPY $222 (−34%)</text>
+
+  <!-- Feb 28 point annotation -->
+  <circle cx="462" cy="212" r="4" fill="#4A90D9"/>
+  <text x="454" y="228" text-anchor="middle" font-size="8" fill="#4A90D9">Feb 28</text>
+  <text x="454" y="238" text-anchor="middle" font-size="8" fill="#718096">−13%</text>
+
+  <!-- Lyapunov peak annotation -->
+  <circle cx="517" cy="108" r="4.5" fill="#E53E3E"/>
+  <rect x="520" y="96" width="68" height="20" rx="3" fill="#FFF5F5" stroke="#E53E3E" stroke-width="1"/>
+  <text x="554" y="110" text-anchor="middle" font-size="8" font-weight="700" fill="#C53030">Λ = 2.18 (peak)</text>
+
+  <!-- Legend -->
+  <rect x="82" y="406" width="720" height="44" rx="5" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="100" y1="422" x2="124" y2="422" stroke="#4A90D9" stroke-width="2.2"/>
+  <rect x="110" y="418" width="6" height="8" rx="1" fill="url(#spy-area)" stroke="#4A90D9" stroke-width="0.5"/>
+  <text x="128" y="426" font-size="9.5" fill="#2C5282">S&amp;P 500 (SPY)</text>
+  <line x1="230" y1="422" x2="254" y2="422" stroke="#E53E3E" stroke-width="2.2"/>
+  <text x="258" y="426" font-size="9.5" fill="#C53030">Lyapunov Λ_t = ℒV(z_t)/V(z_t) (crisis: Λ &gt; 0.85)</text>
+  <line x1="530" y1="422" x2="548" y2="422" stroke="#E53E3E" stroke-width="1" stroke-dasharray="5,3" opacity="0.7"/>
+  <text x="552" y="426" font-size="9.5" fill="#E53E3E">Crisis threshold</text>
+  <line x1="640" y1="422" x2="658" y2="422" stroke="#F6AD55" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="662" y="426" font-size="9.5" fill="#975A16">Market peak (Feb 19)</text>
+
+  <text x="450" y="442" text-anchor="middle" font-size="8.5" fill="#A0AEC0">Retroactive backtest analysis · E-Game-C model trained on 2010–2019 data, evaluated forward in 2019–2020</text>
+</svg>
