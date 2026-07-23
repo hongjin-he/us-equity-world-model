@@ -1,0 +1,40 @@
+# Core ML
+torch>=2.1.0
+jax[cuda12]>=0.4.20
+flax>=0.7.0
+optax>=0.1.7
+
+# Transformer + NLP
+transformers>=4.35.0
+sentence-transformers>=2.2.2
+
+# Numerical
+numpy>=1.26.0
+scipy>=1.11.0
+pandas>=2.1.0
+
+# Data + Storage
+kafka-python>=2.0.2
+psycopg2-binary>=2.9.9
+sqlalchemy>=2.0.0
+
+# Financial data APIs (all have free tiers)
+alpaca-trade-api>=3.0.0
+polygon-api-client>=1.12.0
+fredapi>=0.5.1
+newsapi-python>=0.2.7
+
+# Orchestration
+apache-airflow>=2.7.0
+
+# Visualization
+streamlit>=1.28.0
+plotly>=5.18.0
+matplotlib>=3.8.0
+
+# Dev
+pytest>=7.4.0
+black>=23.0.0
+mypy>=1.6.0
+jupyter>=1.0.0
+ipywidgets>=8.0.0
