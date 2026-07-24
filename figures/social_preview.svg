@@ -73,7 +73,7 @@
   <!-- Bottom: attribution -->
   <line x1="490" y1="560" x2="1240" y2="560" stroke="#0D2040" stroke-width="1"/>
   <text x="490" y="590" font-family="monospace" font-size="15" fill="#374151">Alpha Flow Research  ·  HongJin HE  ·  HKUST / Stanford IHP  ·  2026</text>
-  <text x="490" y="612" font-family="monospace" font-size="14" fill="#1D4ED8">github.com/hongjin-he/World-Model-For-Quant-Company</text>
+  <text x="490" y="612" font-family="monospace" font-size="14" fill="#1D4ED8">github.com/hongjin-he/MicroWorld</text>
 
   <!-- Top-right: equation teaser -->
   <text x="1240" y="60" font-family="monospace" font-size="13" fill="#1D4ED8" text-anchor="end" opacity="0.8">P(t) = ∫∫∫∫ α*(y,x,ξ,Γ) · μ⁽³⁾ · μ⁽²⁾ · μ⁽¹⁾ · ν⁽⁰⁾</text>
