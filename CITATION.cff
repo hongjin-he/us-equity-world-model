@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use MicroWorld in your research, please cite it as below."
+type: software
+title: "MicroWorld: A Multi-Agent World Model for US Equity Markets"
+abstract: >
+  MicroWorld is the first world model architecture designed for quantitative finance,
+  combining multi-layer mean-field game theory with deep learning. The E-Game-C
+  architecture (Encoder–Game–Controller) formalizes markets as a complex adaptive system
+  with heterogeneous agents, dual stochastic noise decomposition, and Lyapunov stability
+  guarantees. The framework is the financial analogue of Hilbert's sixth problem: deriving
+  macroscopic market dynamics from first-principles agent optimization.
+authors:
+  - family-names: "HE"
+    given-names: "HongJin"
+    email: "hehongjinhkust0911@gmail.com"
+    affiliation: "Hong Kong University of Science and Technology / Stanford University IHP"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "https://github.com/hongjin-he/MicroWorld"
+url: "https://github.com/hongjin-he/MicroWorld"
+license: MIT
+version: "0.1.0"
+date-released: "2026-07-23"
+keywords:
+  - "world model"
+  - "mean-field game"
+  - "quantitative finance"
+  - "multi-agent systems"
+  - "stochastic control"
+  - "deep learning"
+  - "market microstructure"
+  - "mean-field control"
+  - "Lyapunov stability"
+  - "groupoid algebra"
+preferred-citation:
+  type: software
+  authors:
+    - family-names: "HE"
+      given-names: "HongJin"
+      affiliation: "HKUST / Stanford University IHP"
+  title: "MicroWorld: A Multi-Agent World Model for US Equity Markets"
+  year: 2026
+  url: "https://github.com/hongjin-he/MicroWorld"

@@ -58,11 +58,16 @@ class DualNoiseCalibrator:
 
     def detect_jumps(self, returns: np.ndarray, bpv: float, dt: float = 1/78) -> np.ndarray:
         """
-        Lee-Mykland jump detection. Returns boolean mask of jump indices.
-        dt = 5min / (6.5hr * 60min) ≈ 1/78 for 5-min bars.
+        Lee-Mykland (2008) jump detection. Returns boolean mask of jump indices.
+        dt = bar interval as fraction of day (e.g. 1/78 for 5-min bars).
+
+        Test statistic: |r_t| / sigma_hat vs c_alpha,
+        where sigma_hat = sqrt(BPV/n) is the per-bar volatility estimate.
         """
-        sigma_hat = np.sqrt(bpv / len(returns))
-        critical = sigma_hat * np.sqrt(dt) * self._lee_mykland_critical(len(returns))
+        if len(returns) == 0:
+            return np.zeros(0, dtype=bool)
+        sigma_hat = np.sqrt(bpv / len(returns))  # per-bar vol estimate
+        critical = sigma_hat * self._lee_mykland_critical(len(returns))
         return np.abs(returns) > critical
 
     def calibrate(self, intraday_returns: np.ndarray, dt: float = 1/78) -> DualNoiseParams:

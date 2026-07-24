@@ -132,6 +132,62 @@ def merger_operator(d: int = 5) -> EventOperator:
     )
 
 
+def ipo_operator(ticker: str, d: int = 5, n_assets: int = 0) -> EventOperator:
+    """
+    IPO: universe grows from n_assets to n_assets+1.
+    New asset starts with prior = market average state.
+    A_w is ((n+1)d × nd): identity for existing assets, new row appended.
+    """
+    n = n_assets
+    A = np.zeros(((n + 1) * d, n * d)) if n > 0 else np.zeros((d, 0))
+    if n > 0:
+        A[:n * d, :n * d] = np.eye(n * d)
+    # New asset row is zero (initialised from b_w)
+    b = np.zeros((n + 1) * d)
+    b[n * d + 0] = 4.5   # log_price ≈ exp(4.5) ~ $90 IPO price
+    b[n * d + 1] = 3.0   # log_volume
+    source = list(range(n))
+    target = list(range(n + 1))
+    return EventOperator(
+        name=f"ipo_{ticker}",
+        mode=EventMode.PAIRWISE,
+        A_w=A, b_w=b,
+        Sigma_w=np.eye((n + 1) * d) * 0.1,
+        source_tickers=[str(i) for i in source],
+        target_tickers=[str(i) for i in target],
+    )
+
+
+def compose(op1: EventOperator, op2: EventOperator) -> EventOperator:
+    """
+    Groupoid composition: op1 ∘ op2, i.e., apply op2 first, then op1.
+    Defined only when op2.target_tickers == op1.source_tickers (dimension match).
+
+    Returns composed operator or raises ValueError on domain mismatch.
+    """
+    if len(op1.source_tickers) != len(op2.target_tickers):
+        raise ValueError(
+            f"Domain mismatch: op1 source has {len(op1.source_tickers)} assets, "
+            f"op2 target has {len(op2.target_tickers)} assets. "
+            f"Groupoid composition undefined."
+        )
+    # Composed affine map: A_comp = A1 @ A2, b_comp = A1 @ b2 + b1
+    if op1.A_w.shape[1] != op2.A_w.shape[0]:
+        raise ValueError(
+            f"Matrix dimension mismatch: op1.A {op1.A_w.shape} vs op2.A {op2.A_w.shape}"
+        )
+    A_comp = op1.A_w @ op2.A_w
+    b_comp = op1.A_w @ op2.b_w + op1.b_w
+    Sigma_comp = np.sqrt(op1.Sigma_w ** 2 + (op1.A_w @ op2.Sigma_w) ** 2)
+    return EventOperator(
+        name=f"{op1.name}_after_{op2.name}",
+        mode=op2.mode,  # overall mode determined by first operator applied
+        A_w=A_comp, b_w=b_comp, Sigma_w=Sigma_comp,
+        source_tickers=op2.source_tickers,
+        target_tickers=op1.target_tickers,
+    )
+
+
 def spinoff_operator(d: int = 5) -> EventOperator:
     """
     Spin-off: one asset → two assets (parent + child).

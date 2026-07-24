@@ -14,9 +14,9 @@
 
 ---
 
-[![Stars](https://img.shields.io/github/stars/hongjin-he/World-Model-For-Quant-Company?style=social)](https://github.com/hongjin-he/World-Model-For-Quant-Company/stargazers)
-[![Forks](https://img.shields.io/github/forks/hongjin-he/World-Model-For-Quant-Company?style=social)](https://github.com/hongjin-he/World-Model-For-Quant-Company/network/members)
-[![Watchers](https://img.shields.io/github/watchers/hongjin-he/World-Model-For-Quant-Company?style=social)](https://github.com/hongjin-he/World-Model-For-Quant-Company/watchers)
+[![Stars](https://img.shields.io/github/stars/hongjin-he/MicroWorld?style=social)](https://github.com/hongjin-he/MicroWorld/stargazers)
+[![Forks](https://img.shields.io/github/forks/hongjin-he/MicroWorld?style=social)](https://github.com/hongjin-he/MicroWorld/network/members)
+[![Watchers](https://img.shields.io/github/watchers/hongjin-he/MicroWorld?style=social)](https://github.com/hongjin-he/MicroWorld/watchers)
 
 [![Paper](https://img.shields.io/badge/companion%20paper-Alpha%20Flow%2002-red.svg)](https://github.com/hongjin-he/mathmatical-framework-for-world-models-in-quant-finance)
 [![Implementation](https://img.shields.io/badge/engineering%20repo-MicroWorld--Impl-blueviolet.svg)](https://github.com/hongjin-he/us-equity-world-model)
