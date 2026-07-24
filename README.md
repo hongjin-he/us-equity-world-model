@@ -80,6 +80,88 @@ The **predictive coupling loss** (λ · ℒ_pred, shown as the orange dashed arc
 
 ---
 
+## §5 · Financial Event Operator Algebra
+
+![Financial Event Operator Algebra](figures/event_operator_algebra.svg)
+
+Every corporate action or macro announcement is modelled as an **affine operator** on the market state space — giving a precise algebraic language for how discrete events perturb continuous price dynamics.
+
+**General form** (Definition 5.1 of the companion paper):
+
+$$T_w(s) = A_w s + b_w + \Sigma_w \varepsilon_w, \quad \varepsilon_w \sim \mathcal{N}(0, I)$$
+
+where $A_w$ encodes the linear transformation, $b_w$ the deterministic level-shift, and $\Sigma_w \varepsilon_w$ the announcement uncertainty that cannot be hedged away.
+
+### Three Operator Modes (§5.2)
+
+| Mode | Algebraic Structure | Dimension | Examples | $A_w$ form |
+|------|---------------------|-----------|----------|------------|
+| **Type I** — Local endomorphism | Each asset's state transformed independently | $d' = d$ | Stock split, earnings, dividend, buyback | Square: $A_w \in \mathbb{R}^{d \times d}$, $\det(A_w) \neq 0$ |
+| **Type II** — Global tensor action | All $n$ assets affected simultaneously | $d' = d$ | Fed rate decision, CPI print, sector shock | Kronecker: $T^{\text{global}}_w = \Lambda_w \otimes I_d$ |
+| **Type III** — Pairwise morphism | Entity count changes | $d' \neq d$ | M&A ($n \to n-1$), IPO/spin-off ($n \to n+1$) | Non-square: $A_w \in \mathbb{R}^{d' \times d}$ |
+
+### Key Theoretical Results
+
+**Proposition 5.3 — Information Irreversibility:**
+$$T_{w^{-1}} \circ T_w = I + \mathcal{E}^{\text{info}}_w \neq I$$
+$A_w$ invertible does *not* mean the event is reversible. A stock split is undone by a reverse split, but the information already released cannot be unannounced. The information residual $\mathcal{E}^{\text{info}}_w$ is always positive.
+
+**Theorem 5.5 — Topological Groupoid $\mathcal{G}_{\text{fin}}$:**  
+The full event algebra forms a **groupoid** — not a semigroup. Type III events change the state space dimension ($\mathbb{R}^{5n} \to \mathbb{R}^{5(n-1)}$ for M&A), so no single carrier set exists. Composition $T_{w_2} \circ T_{w_1}$ is defined *only* when $\text{src}(T_{w_2}) = \text{tgt}(T_{w_1})$. Type-I events with $\det(A_w) \neq 0$ form a Lie subgroup (Corollary 5.6).
+
+**Appendix B — Non-Commutativity:**
+$$T_{w_2} \circ T_{w_1} \neq T_{w_1} \circ T_{w_2}$$
+A 2-for-1 split *then* a rights issue produces a different terminal state than a rights issue *then* a split. **Sequence order always matters.** This demands Transformers with event-time positional encoding, not bag-of-events models.
+
+### ML Operator Learning
+
+Learning $A_w, b_w, \Sigma_w$ from historical event-impact data:
+
+```python
+# events/operator_learning.py
+import torch, torch.nn as nn
+from transformers import AutoModel
+
+class EventOperatorNet(nn.Module):
+    """
+    Maps event text → (A_w, b_w, Σ_w) operator parameters.
+    Step 1: classify event type (I / II / III).
+    Step 2: predict operator for that type.
+    Trained on (headline, s_{t^-}, s_{t^+}) triples from historical events.
+    """
+    def __init__(self, d_state=5, d_model=768):
+        super().__init__()
+        self.text_encoder = AutoModel.from_pretrained('bert-base-uncased')
+        self.type_head    = nn.Linear(d_model, 3)         # Type I / II / III
+        # Type I: square A_w + shift b_w + diagonal Σ_w
+        self.A_head_I     = nn.Linear(d_model, d_state**2)
+        self.b_head_I     = nn.Linear(d_model, d_state)
+        self.S_head_I     = nn.Linear(d_model, d_state)
+        # Type II: predict Λ_w for Kronecker product T = Λ_w ⊗ I_d
+        self.lambda_head  = nn.Linear(d_model, d_state)
+
+    def forward(self, event_tokens):
+        h          = self.text_encoder(**event_tokens).pooler_output  # (B, 768)
+        event_type = self.type_head(h).argmax(-1)                     # 0/1/2
+        d          = int(self.A_head_I.out_features ** 0.5)
+        A_w        = self.A_head_I(h).view(-1, d, d)
+        b_w        = self.b_head_I(h)
+        S_w        = self.S_head_I(h).exp()                           # positive diagonal
+        return event_type, A_w, b_w, S_w
+
+def operator_loss(model, event_tokens, s_before, s_after):
+    """Learn T_w such that T_w(s_before) ≈ s_after."""
+    event_type, A_w, b_w, S_w = model(event_tokens)
+    s_pred = (A_w @ s_before.unsqueeze(-1)).squeeze(-1) + b_w
+    return F.mse_loss(s_pred, s_after) + 1e-3 * A_w.abs().mean()
+```
+
+**Training pipeline:** For each historical event — stock split, M&A announcement, Fed decision — collect `(headline, s_{t^-}, s_{t^+})` triples. Minimize reconstruction loss. The model learns heterogeneous cross-asset sensitivities in $\Lambda_w$ for Type II operators, and handles dimension-changing morphisms for Type III via Moore-Penrose pseudo-inverse.
+
+**Why this matters over hand-coded rules:** $\Lambda_w$ for a Fed hike has different entries for growth stocks, value stocks, and rate-sensitive financials. The ML model learns these heterogeneous sensitivities from data without manual specification.
+
+---
+
 ## Three Theorems (Proven in the Companion Paper)
 
 ### Theorem 1 — Dual Noise Cramér-Rao Bound
@@ -107,6 +189,8 @@ Neural Fictitious Play converges exponentially:
 $$W_2\!\left(m^{(n)}, m^*\right) \;\leq\; C\rho^n, \quad \rho \in (0,1)$$
 
 **What this means:** The market has a well-defined "center of gravity" that prices perpetually return to between shocks. The MFG equilibrium $m^*$ is where rational agents are heading — before they get there.
+
+![Neural Fictitious Play Convergence](figures/nfp_convergence.svg)
 
 ### Theorem 3 — Stochastic Lyapunov Stability
 
@@ -637,6 +721,10 @@ class HierarchicalMFGSolver:
         return torch.autograd.grad(V, z_t)[0].detach().numpy()
 ```
 
+![Hierarchical MFG Structure](figures/hierarchical_mfg_structure.svg)
+
+**Coupling mechanism:** Level 1 sovereign agents optimise their policy $\alpha^j$ (monetary/fiscal) taking as input the aggregate domestic portfolio distribution $\Psi_j(\mu^{(2)}_{j,\cdot})$. Level 2 investors optimise given the macro state $\xi^j_t$ determined above — CVaR budgets, capital controls, and rate environments all feed down from Level 1. The two-level fixed-point iteration converges in the $W_2$ metric (Theorem 7.4).
+
 ---
 
 ### §5 Controller C — Portfolio Construction and Execution
@@ -1113,9 +1201,13 @@ us-equity-world-model/
 │   └── run_egamec.py          # ← START HERE
 │
 ├── figures/                   # Publication-quality SVG diagrams (inline in README)
-│   ├── lyapunov_covid_2020.svg
-│   ├── gme_behavioral_noise.svg
-│   └── factor_alpha_decay.svg
+│   ├── lyapunov_covid_2020.svg        # Demo 1: COVID crash early warning (Λ_t)
+│   ├── gme_behavioral_noise.svg       # Demo 2: dual noise decomposition (GME Jan 2021)
+│   ├── factor_alpha_decay.svg         # Why factor models are dying (Lucas Critique)
+│   ├── egamec_architecture.svg        # E → Game → C pipeline diagram
+│   ├── event_operator_algebra.svg     # Type I/II/III operator taxonomy + groupoid
+│   ├── hierarchical_mfg_structure.svg # Two-level McKean-Vlasov system (§7)
+│   └── nfp_convergence.svg            # Neural Fictitious Play W₂ convergence (§4)
 │
 ├── notebooks/                 # 14-day theory walkthrough
 │   ├── 01_why_factor_models_fail.ipynb

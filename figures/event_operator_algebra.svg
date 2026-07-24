@@ -1,0 +1,238 @@
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg"
+     font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="g-t1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EBF8FF"/><stop offset="100%" stop-color="#BEE3F8"/>
+    </linearGradient>
+    <linearGradient id="g-t2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFF0"/><stop offset="100%" stop-color="#FEFCBF"/>
+    </linearGradient>
+    <linearGradient id="g-t3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FAF5FF"/><stop offset="100%" stop-color="#E9D8FD"/>
+    </linearGradient>
+    <marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#4A5568"/>
+    </marker>
+    <marker id="a-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#E53E3E"/>
+    </marker>
+    <filter id="sh" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#FAFBFC" rx="10"/>
+
+  <!-- Title -->
+  <text x="500" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#1A202C">
+    Financial Event Operator Algebra  (§5 · Theorem 5.5)
+  </text>
+  <text x="500" y="47" text-anchor="middle" font-size="10.5" fill="#718096">
+    Every corporate or macroeconomic event acts as an affine operator on the market state space  S_t ∈ ℝ^{5n}
+  </text>
+
+  <!-- General formula bar -->
+  <rect x="160" y="55" width="680" height="28" rx="6" fill="#2D3748"/>
+  <text x="500" y="74" text-anchor="middle" font-size="11.5" fill="white">
+    T<tspan dy="3" font-size="8">w</tspan>
+    <tspan dy="-3">(s) = A</tspan>
+    <tspan dy="3" font-size="8">w</tspan>
+    <tspan dy="-3"> s  +  b</tspan>
+    <tspan dy="3" font-size="8">w</tspan>
+    <tspan dy="-3">  +  Σ</tspan>
+    <tspan dy="3" font-size="8">w</tspan>
+    <tspan dy="-3"> ε</tspan>
+    <tspan dy="3" font-size="8">w</tspan>
+    <tspan dy="-3">,    ε</tspan>
+    <tspan dy="3" font-size="8">w</tspan>
+    <tspan dy="-3"> ~ N(0, I)        [A</tspan>
+    <tspan dy="3" font-size="8">w</tspan>
+    <tspan dy="-3">: linear part  ·  b</tspan>
+    <tspan dy="3" font-size="8">w</tspan>
+    <tspan dy="-3">: shift  ·  Σ</tspan>
+    <tspan dy="3" font-size="8">w</tspan>
+    <tspan dy="-3">: announcement uncertainty]</tspan>
+  </text>
+  <line x1="20" y1="90" x2="980" y2="90" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- ══════════ TYPE I ══════════ -->
+  <rect x="15" y="96" width="308" height="308" rx="9" fill="url(#g-t1)" stroke="#2B6CB0" stroke-width="2" filter="url(#sh)"/>
+  <!-- Header -->
+  <rect x="15" y="96" width="308" height="40" rx="9" fill="#2B6CB0"/>
+  <rect x="15" y="118" width="308" height="18" fill="#2B6CB0"/>
+  <text x="169" y="113" text-anchor="middle" font-size="12.5" font-weight="700" fill="white">Type I — Local Endomorphism</text>
+  <text x="169" y="128" text-anchor="middle" font-size="9.5" fill="#BEE3F8">d′ = d  ·  dimension preserved</text>
+
+  <!-- Type I matrix diagram -->
+  <text x="30" y="152" font-size="9" font-weight="700" fill="#2C5282" letter-spacing="0.5">MATRIX STRUCTURE</text>
+  <rect x="25" y="158" width="130" height="50" rx="4" fill="white" fill-opacity="0.7"/>
+  <text x="90" y="173" text-anchor="middle" font-size="9.5" fill="#1A365D">A</text>
+  <text x="97" y="177" font-size="6.5" fill="#1A365D">w</text>
+  <text x="110" y="173" text-anchor="middle" font-size="9.5" fill="#1A365D"> ∈ ℝ</text>
+  <text x="147" y="169" font-size="7" fill="#1A365D">d × d</text>
+  <text x="90" y="190" text-anchor="middle" font-size="8.5" fill="#2B6CB0">Square matrix</text>
+  <text x="90" y="202" text-anchor="middle" font-size="8.5" fill="#276749" font-weight="600">det(A</text>
+  <text x="123" y="206" font-size="6.5" fill="#276749">w</text>
+  <text x="130" y="202" font-size="8.5" fill="#276749" font-weight="600">) ≠ 0 → group</text>
+
+  <!-- Stock split example -->
+  <rect x="163" y="158" width="150" height="50" rx="4" fill="#2B6CB0" fill-opacity="0.08" stroke="#2B6CB0" stroke-width="1"/>
+  <text x="238" y="172" text-anchor="middle" font-size="8.5" font-weight="600" fill="#2C5282">2-for-1 split (r=2):</text>
+  <text x="238" y="184" text-anchor="middle" font-size="8.5" fill="#2D3748">A</text>
+  <text x="246" y="188" font-size="6" fill="#2D3748">w</text>
+  <text x="253" y="184" font-size="8.5" fill="#2D3748"> = diag(1,1,1,r,1)</text>
+  <text x="238" y="197" text-anchor="middle" font-size="8" fill="#C05621">b</text>
+  <text x="246" y="201" font-size="6" fill="#C05621">w</text>
+  <text x="252" y="197" font-size="8" fill="#C05621"> shifts ι-coord  (info↑)</text>
+
+  <line x1="25" y1="216" x2="315" y2="216" stroke="#BEE3F8" stroke-width="1"/>
+
+  <text x="30" y="231" font-size="9" font-weight="700" fill="#2C5282" letter-spacing="0.5">EXAMPLES</text>
+  <text x="30" y="245" font-size="9" fill="#2D3748">• Stock split / reverse split</text>
+  <text x="30" y="258" font-size="9" fill="#2D3748">• Share repurchase / buyback</text>
+  <text x="30" y="271" font-size="9" fill="#2D3748">• Earnings announcement</text>
+  <text x="30" y="284" font-size="9" fill="#2D3748">• Dividend payment</text>
+  <text x="30" y="297" font-size="9" fill="#2D3748">• Regulatory fine / settlement</text>
+
+  <line x1="25" y1="305" x2="315" y2="305" stroke="#BEE3F8" stroke-width="1"/>
+
+  <!-- Info irreversibility -->
+  <rect x="25" y="311" width="296" height="85" rx="5" fill="#2B6CB0" fill-opacity="0.07" stroke="#2B6CB0" stroke-width="1.2"/>
+  <text x="173" y="328" text-anchor="middle" font-size="8.5" font-weight="700" fill="#2C5282">Prop 5.3 — Information Irreversibility</text>
+  <text x="173" y="345" text-anchor="middle" font-size="10" fill="#1A365D">T</text>
+  <text x="180" y="349" font-size="7" fill="#1A365D">w⁻¹</text>
+  <text x="198" y="345" font-size="10" fill="#1A365D"> ∘ T</text>
+  <text x="218" y="349" font-size="7" fill="#1A365D">w</text>
+  <text x="224" y="345" font-size="10" fill="#1A365D"> = I + </text>
+  <text x="258" y="345" font-size="10" fill="#C05621">ℰ</text>
+  <text x="267" y="349" font-size="7" fill="#C05621">info</text>
+  <text x="284" y="349" font-size="7" fill="#C05621">w</text>
+  <text x="292" y="345" font-size="10" fill="#1A365D"> ≠ I</text>
+  <text x="173" y="363" text-anchor="middle" font-size="8" fill="#4A5568">A_w invertible ≠ event reversible.</text>
+  <text x="173" y="375" text-anchor="middle" font-size="8" fill="#4A5568">Split is undone by reverse split,</text>
+  <text x="173" y="387" text-anchor="middle" font-size="8" fill="#C05621">but the information already released cannot be unannounced.</text>
+
+  <!-- ══════════ TYPE II ══════════ -->
+  <rect x="341" y="96" width="318" height="308" rx="9" fill="url(#g-t2)" stroke="#B7791F" stroke-width="2" filter="url(#sh)"/>
+  <rect x="341" y="96" width="318" height="40" rx="9" fill="#B7791F"/>
+  <rect x="341" y="118" width="318" height="18" fill="#B7791F"/>
+  <text x="500" y="113" text-anchor="middle" font-size="12.5" font-weight="700" fill="white">Type II — Global Tensor Action</text>
+  <text x="500" y="128" text-anchor="middle" font-size="9.5" fill="#FEFCBF">d′ = d  ·  all n assets affected simultaneously</text>
+
+  <text x="356" y="152" font-size="9" font-weight="700" fill="#7B341E" letter-spacing="0.5">MATRIX STRUCTURE</text>
+  <rect x="351" y="158" width="142" height="50" rx="4" fill="white" fill-opacity="0.7"/>
+  <text x="422" y="174" text-anchor="middle" font-size="9.5" fill="#7B341E">T</text>
+  <text x="430" y="170" font-size="6.5" fill="#7B341E">global</text>
+  <text x="455" y="170" font-size="6.5" fill="#7B341E">w</text>
+  <text x="460" y="174" font-size="9.5" fill="#7B341E"> = Λ</text>
+  <text x="478" y="178" font-size="7" fill="#7B341E">w</text>
+  <text x="485" y="174" font-size="9.5" fill="#7B341E"> ⊗ I</text>
+  <text x="502" y="178" font-size="7" fill="#7B341E">d</text>
+  <text x="422" y="192" text-anchor="middle" font-size="8.5" fill="#B7791F">Kronecker product</text>
+  <text x="422" y="204" text-anchor="middle" font-size="8.5" fill="#7B341E">Λ</text>
+  <text x="432" y="208" font-size="6.5" fill="#7B341E">w</text>
+  <text x="438" y="204" font-size="8.5" fill="#7B341E"> ∈ ℝ</text>
+  <text x="460" y="200" font-size="7" fill="#7B341E">n×n</text>
+
+  <!-- Fed rate hike example -->
+  <rect x="500" y="158" width="152" height="50" rx="4" fill="#B7791F" fill-opacity="0.10" stroke="#B7791F" stroke-width="1"/>
+  <text x="576" y="172" text-anchor="middle" font-size="8.5" font-weight="600" fill="#7B341E">Fed rate hike +25bps:</text>
+  <text x="576" y="184" text-anchor="middle" font-size="8" fill="#2D3748">Λ</text>
+  <text x="584" y="188" font-size="6" fill="#2D3748">w</text>
+  <text x="590" y="184" font-size="8" fill="#2D3748"> encodes heterogeneous</text>
+  <text x="576" y="196" text-anchor="middle" font-size="8" fill="#2D3748">duration sensitivities</text>
+  <text x="576" y="207" text-anchor="middle" font-size="8" fill="#C05621">(growth stocks hit harder)</text>
+
+  <line x1="351" y1="216" x2="651" y2="216" stroke="#FEFCBF" stroke-width="1"/>
+
+  <text x="356" y="231" font-size="9" font-weight="700" fill="#7B341E" letter-spacing="0.5">EXAMPLES</text>
+  <text x="356" y="245" font-size="9" fill="#2D3748">• Central bank rate decision (Fed, ECB)</text>
+  <text x="356" y="258" font-size="9" fill="#2D3748">• Systemic shock (GFC, COVID lockdown)</text>
+  <text x="356" y="271" font-size="9" fill="#2D3748">• Sector-wide regulation (SEC, Basel III)</text>
+  <text x="356" y="284" font-size="9" fill="#2D3748">• Macro announcement (CPI, NFP, GDP)</text>
+  <text x="356" y="297" font-size="9" fill="#2D3748">• Geopolitical event (tariff, sanctions)</text>
+
+  <line x1="351" y1="305" x2="651" y2="305" stroke="#FEFCBF" stroke-width="1"/>
+
+  <rect x="351" y="311" width="296" height="85" rx="5" fill="#B7791F" fill-opacity="0.08" stroke="#B7791F" stroke-width="1.2"/>
+  <text x="499" y="328" text-anchor="middle" font-size="8.5" font-weight="700" fill="#7B341E">ML Learning of Λ_w from Event Text</text>
+  <text x="499" y="344" text-anchor="middle" font-size="8.5" fill="#2D3748">Headline → BERT encoder → embedding e</text>
+  <text x="499" y="357" text-anchor="middle" font-size="8.5" fill="#2D3748">→ regression head → (Λ</text>
+  <text x="570" y="361" font-size="6.5" fill="#2D3748">w</text>
+  <text x="576" y="357" font-size="8.5" fill="#2D3748">, b</text>
+  <text x="588" y="361" font-size="6.5" fill="#2D3748">w</text>
+  <text x="594" y="357" font-size="8.5" fill="#2D3748">, Σ</text>
+  <text x="610" y="361" font-size="6.5" fill="#2D3748">w</text>
+  <text x="616" y="357" font-size="8.5" fill="#2D3748">)</text>
+  <text x="499" y="371" text-anchor="middle" font-size="8" fill="#7B341E" font-weight="600">Trained on historical: event text → observed price impact</text>
+  <text x="499" y="384" text-anchor="middle" font-size="8" fill="#4A5568">Loss: ‖T_w(s_before) − s_after‖² + L1 regularisation on Λ_w</text>
+
+  <!-- ══════════ TYPE III ══════════ -->
+  <rect x="677" y="96" width="308" height="308" rx="9" fill="url(#g-t3)" stroke="#553C9A" stroke-width="2" filter="url(#sh)"/>
+  <rect x="677" y="96" width="308" height="40" rx="9" fill="#553C9A"/>
+  <rect x="677" y="118" width="308" height="18" fill="#553C9A"/>
+  <text x="831" y="113" text-anchor="middle" font-size="12.5" font-weight="700" fill="white">Type III — Pairwise Morphism</text>
+  <text x="831" y="128" text-anchor="middle" font-size="9.5" fill="#D6BCFA">d′ ≠ d  ·  entity count changes  ·  non-square A_w</text>
+
+  <text x="692" y="152" font-size="9" font-weight="700" fill="#44337A" letter-spacing="0.5">MATRIX STRUCTURE</text>
+  <rect x="687" y="158" width="130" height="50" rx="4" fill="white" fill-opacity="0.7"/>
+  <text x="752" y="174" text-anchor="middle" font-size="9.5" fill="#44337A">A</text>
+  <text x="759" y="178" font-size="6.5" fill="#44337A">w</text>
+  <text x="765" y="174" font-size="9.5" fill="#44337A"> ∈ ℝ</text>
+  <text x="793" y="170" font-size="7" fill="#44337A">d′ × d</text>
+  <text x="752" y="190" text-anchor="middle" font-size="8.5" fill="#E53E3E" font-weight="600">Non-square!</text>
+  <text x="752" y="202" text-anchor="middle" font-size="8" fill="#553C9A">Moore-Penrose T</text>
+  <text x="800" y="206" font-size="6.5" fill="#553C9A">+</text>
+  <text x="805" y="202" font-size="8" fill="#553C9A">_w exists</text>
+
+  <rect x="825" y="158" width="153" height="50" rx="4" fill="#553C9A" fill-opacity="0.10" stroke="#553C9A" stroke-width="1"/>
+  <text x="901" y="172" text-anchor="middle" font-size="8.5" font-weight="600" fill="#44337A">M&amp;A: n → n−1</text>
+  <text x="901" y="184" text-anchor="middle" font-size="8.5" fill="#2D3748">Two rows merged</text>
+  <text x="901" y="196" text-anchor="middle" font-size="8.5" fill="#2D3748">into one</text>
+  <text x="901" y="207" text-anchor="middle" font-size="8.5" font-weight="600" fill="#276749">IPO: n → n+1</text>
+
+  <line x1="687" y1="216" x2="977" y2="216" stroke="#D6BCFA" stroke-width="1"/>
+
+  <text x="692" y="231" font-size="9" font-weight="700" fill="#44337A" letter-spacing="0.5">EXAMPLES</text>
+  <text x="692" y="245" font-size="9" fill="#2D3748">• Merger &amp; Acquisition  (n → n−1)</text>
+  <text x="692" y="258" font-size="9" fill="#2D3748">• IPO / new listing       (n → n+1)</text>
+  <text x="692" y="271" font-size="9" fill="#2D3748">• Spin-off / demerger    (n → n+1)</text>
+  <text x="692" y="284" font-size="9" fill="#2D3748">• Delisting / bankruptcy  (n → n−1)</text>
+  <text x="692" y="297" font-size="9" fill="#2D3748">• SPAC merger / reverse merger</text>
+
+  <line x1="687" y1="305" x2="977" y2="305" stroke="#D6BCFA" stroke-width="1"/>
+
+  <!-- Why not a semigroup? -->
+  <rect x="687" y="311" width="296" height="85" rx="5" fill="#E53E3E" fill-opacity="0.07" stroke="#E53E3E" stroke-width="1.5"/>
+  <text x="835" y="328" text-anchor="middle" font-size="8.5" font-weight="700" fill="#C53030">Why NOT a semigroup?</text>
+  <text x="835" y="344" text-anchor="middle" font-size="8.5" fill="#2D3748">T: ℝ^{5n} → ℝ^{5(n-1)} has no common domain/codomain.</text>
+  <text x="835" y="357" text-anchor="middle" font-size="8.5" fill="#2D3748">Composition T_w2 ∘ T_w1 requires src(T_w2) = tgt(T_w1).</text>
+  <text x="835" y="371" text-anchor="middle" font-size="9" fill="#C53030" font-weight="600">A semigroup needs one carrier set — impossible here.</text>
+  <text x="835" y="384" text-anchor="middle" font-size="9" fill="#553C9A" font-weight="600">→ The correct structure is a GROUPOID (Theorem 5.5)</text>
+
+  <!-- ══════════ BOTTOM: Groupoid structure + non-commutativity ══════════ -->
+  <rect x="15" y="418" width="480" height="168" rx="8" fill="#2D3748" fill-opacity="0.04" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="255" y="438" text-anchor="middle" font-size="10.5" font-weight="700" fill="#2D3748">Theorem 5.5 — Topological Groupoid  𝒢_fin</text>
+  <line x1="25" y1="444" x2="487" y2="444" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="30" y="460" font-size="9" fill="#4A5568">• Objects: {ℋ_S : S is a valid n-asset configuration,  n ∈ ℕ}</text>
+  <text x="30" y="475" font-size="9" fill="#4A5568">• Morphisms: T_w ∈ Hom(ℋ_S, ℋ_S′)  with  src(T_w)=ℋ_S, tgt(T_w)=ℋ_S′</text>
+  <text x="30" y="490" font-size="9" fill="#4A5568">• Composition T_w2∘T_w1 defined iff src(T_w2) = tgt(T_w1)   [type matching]</text>
+  <text x="30" y="505" font-size="9" fill="#4A5568">• Identities: id_{ℋ_S} = I_{d·|S|}   ·   Partial inverses: Moore-Penrose T_w⁺</text>
+  <text x="30" y="520" font-size="9" fill="#276749" font-weight="600">• Type-I events with det≠0 form a subgroup (Corollary 5.6)</text>
+  <text x="30" y="535" font-size="9" fill="#4A5568">• Topology: operator norm on each Hom(ℋ_S, ℋ_S′) + disjoint-union topology</text>
+  <text x="255" y="574" text-anchor="middle" font-size="9" fill="#A0AEC0">Proof: verify four groupoid axioms — associativity · identities · partial inverses · joint continuity of composition</text>
+
+  <rect x="510" y="418" width="475" height="168" rx="8" fill="#E53E3E" fill-opacity="0.04" stroke="#E53E3E" stroke-width="1.5"/>
+  <text x="747" y="438" text-anchor="middle" font-size="10.5" font-weight="700" fill="#C53030">Appendix B — Non-Commutativity of Event Sequences</text>
+  <line x1="520" y1="444" x2="977" y2="444" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="525" y="460" font-size="9" fill="#4A5568">Proposition B.1:  In general,  T_w2 ∘ T_w1  ≠  T_w1 ∘ T_w2</text>
+  <text x="525" y="477" font-size="9" font-weight="600" fill="#C53030">Example: 2-for-1 split then rights issue vs. rights issue then split</text>
+  <text x="525" y="493" font-size="9" fill="#4A5568">w1 = split (r=2):  T_w1(p,κ) = (p, κ+log2)</text>
+  <text x="525" y="508" font-size="9" fill="#4A5568">w2 = rights issue:  T_w2(p,κ) = (p/r, κ+log r)</text>
+  <text x="525" y="524" font-size="9" fill="#4A5568">T_w2∘T_w1: uses pre-split price for rights issue pricing</text>
+  <text x="525" y="539" font-size="9" fill="#4A5568">T_w1∘T_w2: uses post-rights price  →  DIFFERENT outcome</text>
+  <text x="747" y="558" text-anchor="middle" font-size="9" fill="#C53030" font-weight="600">Order of events matters: sequence-aware ML models required</text>
+  <text x="747" y="573" text-anchor="middle" font-size="8.5" fill="#4A5568">(Transformers with event-time positional encoding capture this structure)</text>
+
+</svg>

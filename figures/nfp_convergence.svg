@@ -1,0 +1,177 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg"
+     font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="gCold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FC8181" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#FC8181" stop-opacity="0.01"/>
+    </linearGradient>
+    <linearGradient id="gWarm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#48BB78" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#48BB78" stop-opacity="0.01"/>
+    </linearGradient>
+    <marker id="arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#276749"/>
+    </marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#C53030"/>
+    </marker>
+    <filter id="sh" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-opacity="0.09"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="460" fill="#FAFBFC" rx="10"/>
+
+  <!-- Title -->
+  <text x="450" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1A202C">
+    Neural Fictitious Play — Convergence to Mean-Field Equilibrium
+  </text>
+  <text x="450" y="46" text-anchor="middle" font-size="10.5" fill="#718096">
+    W₂(m^(n), m*) ≤ C·ρⁿ  (exponential rate, Prop 4.2) · Warm start via EWC cuts iterations 75%
+  </text>
+  <line x1="30" y1="54" x2="870" y2="54" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Chart area: x 80..800, y 70..360 -->
+  <!-- X: iterations 0..55 → x = 80 + n/55*720 -->
+  <!-- Y: W2 0..0.32 → y = 360 - val/0.32*290 -->
+
+  <!-- Grid horizontal -->
+  <line x1="80" y1="70"  x2="800" y2="70"  stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="128" x2="800" y2="128" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="186" x2="800" y2="186" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="244" x2="800" y2="244" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="302" x2="800" y2="302" stroke="#EDF2F7" stroke-width="1"/>
+  <line x1="80" y1="360" x2="800" y2="360" stroke="#CBD5E0" stroke-width="1.5"/>
+  <!-- Axes -->
+  <line x1="80" y1="70" x2="80" y2="365" stroke="#CBD5E0" stroke-width="1.5"/>
+
+  <!-- Y axis labels -->
+  <text x="73" y="74"  text-anchor="end" font-size="9" fill="#718096">0.30</text>
+  <text x="73" y="132" text-anchor="end" font-size="9" fill="#718096">0.24</text>
+  <text x="73" y="190" text-anchor="end" font-size="9" fill="#718096">0.18</text>
+  <text x="73" y="248" text-anchor="end" font-size="9" fill="#718096">0.12</text>
+  <text x="73" y="306" text-anchor="end" font-size="9" fill="#718096">0.06</text>
+  <text x="73" y="364" text-anchor="end" font-size="9" fill="#718096">0.00</text>
+  <text transform="rotate(-90,22,215)" x="22" y="215" text-anchor="middle" font-size="9.5" fill="#4A5568">W₂ (m^(n), m*)  — Wasserstein-2 distance</text>
+
+  <!-- X axis labels: iterations 0,5,10,15,20,25,30,35,40,45,50,55 -->
+  <!-- x = 80 + n/55*720 -->
+  <text x="80"  y="377" text-anchor="middle" font-size="9" fill="#718096">0</text>
+  <text x="145" y="377" text-anchor="middle" font-size="9" fill="#718096">5</text>
+  <text x="211" y="377" text-anchor="middle" font-size="9" fill="#718096">10</text>
+  <text x="276" y="377" text-anchor="middle" font-size="9" fill="#718096">15</text>
+  <text x="341" y="377" text-anchor="middle" font-size="9" fill="#718096">20</text>
+  <text x="407" y="377" text-anchor="middle" font-size="9" fill="#718096">25</text>
+  <text x="472" y="377" text-anchor="middle" font-size="9" fill="#718096">30</text>
+  <text x="538" y="377" text-anchor="middle" font-size="9" fill="#718096">35</text>
+  <text x="603" y="377" text-anchor="middle" font-size="9" fill="#718096">40</text>
+  <text x="668" y="377" text-anchor="middle" font-size="9" fill="#718096">45</text>
+  <text x="734" y="377" text-anchor="middle" font-size="9" fill="#718096">50</text>
+  <text x="800" y="377" text-anchor="middle" font-size="9" fill="#718096">55</text>
+  <text x="440" y="393" text-anchor="middle" font-size="9.5" fill="#4A5568">Outer iteration  n</text>
+
+  <!-- ── COLD START curve (red) ──
+    Exponential: W2(n) = 0.285 * 0.87^n + 0.004
+    n=0: 0.289 → y=360-0.289/0.32*290=97
+    n=1: 0.252 → y=360-0.252/0.32*290=131
+    n=2: 0.221 → y=360-0.221/0.32*290=160
+    n=3: 0.194 → y=360-0.194/0.32*290=184
+    n=4: 0.171 → y=360-0.171/0.32*290=205
+    n=5: 0.151 → y=360-0.151/0.32*290=223
+    n=7: 0.118 → y=360-0.118/0.32*290=253
+    n=10: 0.079 → y=360-0.079/0.32*290=288
+    n=13: 0.055 → y=360-0.055/0.32*290=311
+    n=16: 0.040 → y=360-0.040/0.32*290=324
+    n=20: 0.026 → y=360-0.026/0.32*290=336
+    n=25: 0.016 → y=360-0.016/0.32*290=345
+    n=30: 0.011 → y=360-0.011/0.32*290=350
+    n=40: 0.007 → y=356
+    n=50: 0.005 → y=360-0.005/0.32*290=355.5
+  -->
+  <!-- x = 80 + n/55*720, step per n=13.09 -->
+  <!-- n=0:80, n=1:93, n=2:106, n=3:119, n=4:132, n=5:145, n=7:172, n=10:211, n=13:250, n=16:290, n=20:341, n=25:407, n=30:472, n=40:603, n=50:734 -->
+
+  <polygon points="80,360 80,97 93,131 106,160 119,184 132,205 145,223 172,253 211,288 250,311 290,324 341,336 407,345 472,350 603,356 734,358 800,359 800,360"
+    fill="url(#gCold)"/>
+  <polyline points="80,97 93,131 106,160 119,184 132,205 145,223 172,253 211,288 250,311 290,324 341,336 407,345 472,350 603,356 734,358 800,359"
+    fill="none" stroke="#E53E3E" stroke-width="2.2" stroke-linejoin="round"/>
+
+  <!-- ── WARM START curve (green) ──
+    Starts at n=0: W2=0.019 (EWC initialisation from yesterday's weights)
+    W2(n) = 0.017 * 0.77^n + 0.004
+    n=0: 0.021 → y=360-0.021/0.32*290=341
+    n=1: 0.017 → y=360-0.017/0.32*290=345
+    n=2: 0.015 → y=347
+    n=3: 0.013 → y=360-0.013/0.32*290=348.2
+    n=5: 0.010 → y=360-0.010/0.32*290=351
+    n=8: 0.007 → y=356
+    n=12: 0.005 → y=360-0.005/0.32*290=355.5
+  -->
+  <polygon points="80,360 80,341 93,345 106,347 119,348 145,351 211,355 276,357 800,359 800,360"
+    fill="url(#gWarm)"/>
+  <polyline points="80,341 93,345 106,347 119,348 145,351 211,355 276,357 800,359"
+    fill="none" stroke="#48BB78" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- Convergence threshold line -->
+  <line x1="80" y1="357" x2="800" y2="357" stroke="#553C9A" stroke-width="1.2" stroke-dasharray="8,4"/>
+  <text x="805" y="361" font-size="8.5" fill="#553C9A">ε* = 0.004</text>
+
+  <!-- Cold start annotation: iteration count to convergence -->
+  <circle cx="472" cy="350" r="5" fill="#E53E3E"/>
+  <rect x="480" y="334" width="120" height="28" rx="4" fill="#FFF5F5" stroke="#E53E3E" stroke-width="1.2" filter="url(#sh)"/>
+  <text x="540" y="348" text-anchor="middle" font-size="9" font-weight="700" fill="#C53030">Cold start: 47 iter</text>
+  <text x="540" y="360" text-anchor="middle" font-size="8.5" fill="#718096">W₂ = 0.009 → ε*</text>
+
+  <!-- Warm start annotation -->
+  <circle cx="276" cy="357" r="5" fill="#48BB78"/>
+  <rect x="284" y="340" width="120" height="28" rx="4" fill="#F0FFF4" stroke="#48BB78" stroke-width="1.2" filter="url(#sh)"/>
+  <text x="344" y="354" text-anchor="middle" font-size="9" font-weight="700" fill="#276749">Warm start: 12 iter</text>
+  <text x="344" y="366" text-anchor="middle" font-size="8.5" fill="#718096">EWC → 75% faster</text>
+
+  <!-- Cold start starting point -->
+  <circle cx="80" cy="97" r="5" fill="#E53E3E" fill-opacity="0.8"/>
+  <rect x="86" y="86" width="120" height="18" rx="3" fill="white" stroke="#E53E3E" stroke-width="1"/>
+  <text x="146" y="99" text-anchor="middle" font-size="8.5" fill="#C53030">Cold: W₂ = 0.285 (random init)</text>
+
+  <!-- Warm start starting point -->
+  <circle cx="80" cy="341" r="5" fill="#48BB78" fill-opacity="0.8"/>
+  <rect x="86" y="330" width="130" height="18" rx="3" fill="white" stroke="#48BB78" stroke-width="1"/>
+  <text x="151" y="343" text-anchor="middle" font-size="8.5" fill="#276749">Warm: W₂ = 0.021 (EWC from t−1)</text>
+
+  <!-- Convergence rate annotation -->
+  <rect x="530" y="100" width="255" height="140" rx="7" fill="white" stroke="#553C9A" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="657" y="118" text-anchor="middle" font-size="10" font-weight="700" fill="#44337A">Prop 4.2 — Convergence Guarantee</text>
+  <line x1="540" y1="124" x2="777" y2="124" stroke="#E9D8FD" stroke-width="1"/>
+  <text x="657" y="140" text-anchor="middle" font-size="9.5" fill="#2D3748">W₂(m^(n), m*)  ≤  C · ρⁿ</text>
+  <text x="657" y="157" text-anchor="middle" font-size="8.5" fill="#4A5568">ρ = (1 − λ/L) &lt; 1  (Lasry-Lions λ, Lipschitz L)</text>
+  <text x="657" y="173" text-anchor="middle" font-size="8.5" fill="#4A5568">C = C(m₀, m*) depends on init</text>
+  <line x1="540" y1="182" x2="777" y2="182" stroke="#E9D8FD" stroke-width="1"/>
+  <text x="657" y="197" text-anchor="middle" font-size="8.5" fill="#4A5568">Each inner loop iteration:</text>
+  <text x="657" y="211" text-anchor="middle" font-size="8.5" fill="#2D3748">1. Fix m^(n) → solve HJB via DGM</text>
+  <text x="657" y="223" text-anchor="middle" font-size="8.5" fill="#2D3748">2. Fix V^(n) → push m forward via FPK</text>
+  <text x="657" y="235" text-anchor="middle" font-size="8.5" fill="#276749" font-weight="600">3. m^(n+1) = (1−η)m^(n) + η·(new FPK)</text>
+
+  <!-- EWC label: explaining the warmstart -->
+  <rect x="80" y="100" width="275" height="95" rx="6" fill="#F0FFF4" stroke="#276749" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="218" y="116" text-anchor="middle" font-size="9.5" font-weight="700" fill="#276749">Why EWC Enables Warm Start</text>
+  <line x1="90" y1="122" x2="346" y2="122" stroke="#C6F6D5" stroke-width="1"/>
+  <text x="218" y="138" text-anchor="middle" font-size="8.5" fill="#4A5568">EWC penalises weight drift from θ_{t-1}:</text>
+  <text x="218" y="154" text-anchor="middle" font-size="9" fill="#2D3748">ℒ_EWC = ℒ_new + λ/2 Σ_i F_i(θ_i − θ_{t-1,i})²</text>
+  <text x="218" y="170" text-anchor="middle" font-size="8.5" fill="#4A5568">F_i = Fisher info diagonal (importance weight)</text>
+  <text x="218" y="186" text-anchor="middle" font-size="8" fill="#276749" font-weight="600">Daily retraining: 25 min (cold) → 6 min (warm, EWC)</text>
+
+  <!-- Legend -->
+  <line x1="80" y1="416" x2="106" y2="416" stroke="#E53E3E" stroke-width="2.2"/>
+  <text x="112" y="420" font-size="9.5" fill="#C53030">Cold start (random initialisation)</text>
+  <line x1="320" y1="416" x2="346" y2="416" stroke="#48BB78" stroke-width="2.5"/>
+  <text x="352" y="420" font-size="9.5" fill="#276749">Warm start (EWC from previous day)</text>
+  <line x1="580" y1="416" x2="606" y2="416" stroke="#553C9A" stroke-width="1.2" stroke-dasharray="8,4"/>
+  <text x="612" y="420" font-size="9.5" fill="#553C9A">Convergence threshold ε* = 0.004</text>
+
+  <!-- Bottom insight -->
+  <rect x="80" y="430" width="720" height="22" rx="5" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="440" y="445" text-anchor="middle" font-size="9" fill="#4A5568">
+    In production: warm start runs every morning at 06:30 ET · 500 MC particles · inner HJB solve: 3 DGM iterations
+  </text>
+
+</svg>

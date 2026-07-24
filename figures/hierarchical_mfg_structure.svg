@@ -1,0 +1,164 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg"
+     font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="gL1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EBF8FF"/><stop offset="100%" stop-color="#BEE3F8"/>
+    </linearGradient>
+    <linearGradient id="gL2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FAF5FF"/><stop offset="100%" stop-color="#E9D8FD"/>
+    </linearGradient>
+    <linearGradient id="gL3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0FFF4"/><stop offset="100%" stop-color="#C6F6D5"/>
+    </linearGradient>
+    <linearGradient id="gCoupler" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#553C9A"/><stop offset="100%" stop-color="#2B6CB0"/>
+    </linearGradient>
+    <marker id="aDn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,1.5 L9,5 L0,8.5 Z" fill="#4A5568"/>
+    </marker>
+    <marker id="aUp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="180">
+      <path d="M0,1.5 L9,5 L0,8.5 Z" fill="#718096"/>
+    </marker>
+    <marker id="aDnB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,1.5 L9,5 L0,8.5 Z" fill="#553C9A"/>
+    </marker>
+    <filter id="sh" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="560" fill="#FAFBFC" rx="10"/>
+
+  <!-- Title -->
+  <text x="500" y="26" text-anchor="middle" font-size="16" font-weight="700" fill="#1A202C">
+    Hierarchical Mean-Field Game Structure (§7 · Theorem 7.4)
+  </text>
+  <text x="500" y="44" text-anchor="middle" font-size="10.5" fill="#718096">
+    Two-scale McKean-Vlasov system — sovereign dynamics feed portfolio constraints · unique hierarchical Nash equilibrium exists
+  </text>
+  <line x1="20" y1="54" x2="980" y2="54" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- ══ LEVEL 1: Macro / Sovereign ══ -->
+  <rect x="30" y="66" width="940" height="148" rx="10" fill="url(#gL1)" stroke="#2B6CB0" stroke-width="2.5" filter="url(#sh)"/>
+  <rect x="30" y="66" width="940" height="36" rx="10" fill="#2B6CB0"/>
+  <rect x="30" y="90" width="940" height="12" fill="#2B6CB0"/>
+  <text x="500" y="87" text-anchor="middle" font-size="12" font-weight="700" fill="white">
+    Level 1 — Macro Sovereign Agents  (j = 1, …, N groups)  ·  Pure MFG (no central planner)
+  </text>
+
+  <!-- L1 agent boxes: 4 countries -->
+  <rect x="52"  y="112" width="190" height="90" rx="7" fill="white" fill-opacity="0.80" stroke="#2B6CB0" stroke-width="1.5"/>
+  <text x="147" y="130" text-anchor="middle" font-size="11" font-weight="700" fill="#2C5282">🇺🇸 United States</text>
+  <text x="147" y="146" text-anchor="middle" font-size="8.5" fill="#4A5568">State: ξ¹_t ∈ ℝ^{d₁}</text>
+  <text x="147" y="159" text-anchor="middle" font-size="8" fill="#4A5568">(GDP, CPI, rates, reserves)</text>
+  <text x="147" y="174" text-anchor="middle" font-size="8" fill="#4A5568">dξ¹ = b₁(ξ¹, ν^(1), α¹) dt + σ₁ dB¹</text>
+  <text x="147" y="189" text-anchor="middle" font-size="8" fill="#C05621">Policy α¹ = Fed / fiscal authority</text>
+
+  <rect x="268" y="112" width="190" height="90" rx="7" fill="white" fill-opacity="0.80" stroke="#2B6CB0" stroke-width="1.5"/>
+  <text x="363" y="130" text-anchor="middle" font-size="11" font-weight="700" fill="#2C5282">🇨🇳 China</text>
+  <text x="363" y="146" text-anchor="middle" font-size="8.5" fill="#4A5568">State: ξ²_t ∈ ℝ^{d₁}</text>
+  <text x="363" y="159" text-anchor="middle" font-size="8" fill="#4A5568">(FX reserves, credit, PMI)</text>
+  <text x="363" y="174" text-anchor="middle" font-size="8" fill="#4A5568">dξ² = b₁(ξ², ν^(1), α²) dt + σ₁ dB²</text>
+  <text x="363" y="189" text-anchor="middle" font-size="8" fill="#C05621">Policy α² = PBOC / NDRC</text>
+
+  <rect x="484" y="112" width="190" height="90" rx="7" fill="white" fill-opacity="0.80" stroke="#2B6CB0" stroke-width="1.5"/>
+  <text x="579" y="130" text-anchor="middle" font-size="11" font-weight="700" fill="#2C5282">🇪🇺 Euro Area</text>
+  <text x="579" y="146" text-anchor="middle" font-size="8.5" fill="#4A5568">State: ξ³_t ∈ ℝ^{d₁}</text>
+  <text x="579" y="159" text-anchor="middle" font-size="8" fill="#4A5568">(EURIBOR, spread, HICP)</text>
+  <text x="579" y="174" text-anchor="middle" font-size="8" fill="#4A5568">dξ³ = b₁(ξ³, ν^(1), α³) dt + σ₁ dB³</text>
+  <text x="579" y="189" text-anchor="middle" font-size="8" fill="#C05621">Policy α³ = ECB / Eurogroup</text>
+
+  <rect x="700" y="112" width="250" height="90" rx="7" fill="#EBF8FF" fill-opacity="0.80" stroke="#2B6CB0" stroke-width="1.5"/>
+  <text x="825" y="130" text-anchor="middle" font-size="10" font-weight="700" fill="#2C5282">L1 Nash Equilibrium Condition</text>
+  <text x="825" y="148" text-anchor="middle" font-size="8.5" fill="#2D3748">ν^(1)_t = ℒ(ξ^j_t) — self-consistent</text>
+  <text x="825" y="162" text-anchor="middle" font-size="8.5" fill="#2D3748">HJB:  0 = ∂_t V¹ + H¹(ξ, DV¹, D²V¹, ν^(1))</text>
+  <text x="825" y="176" text-anchor="middle" font-size="8.5" fill="#2D3748">FPK:  ∂_t ν^(1) = -∇·(b₁ν^(1)) + ½Δ(σ₁²ν^(1))</text>
+  <text x="825" y="192" text-anchor="middle" font-size="8" fill="#276749" font-weight="600">Lasry-Lions monotonicity → unique</text>
+
+  <!-- ══ COUPLING BAND ══ -->
+  <rect x="30" y="224" width="940" height="50" rx="0" fill="url(#gCoupler)" fill-opacity="0.12" stroke="none"/>
+  <line x1="30" y1="224" x2="970" y2="224" stroke="#553C9A" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <line x1="30" y1="274" x2="970" y2="274" stroke="#2B6CB0" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- Coupling label center -->
+  <rect x="370" y="232" width="260" height="34" rx="6" fill="#2D3748"/>
+  <text x="500" y="248" text-anchor="middle" font-size="9.5" font-weight="700" fill="white">
+    Aggregation Coupling Functional Ψ_j
+  </text>
+  <text x="500" y="262" text-anchor="middle" font-size="9" fill="#E2E8F0">
+    Ψ_j(μ^(2)_{j,·}) = ∫ φ(x) μ^(2)_{j,t}(dx)    (domestic investment aggregate)
+  </text>
+
+  <!-- Left coupling arrows -->
+  <line x1="147" y1="202" x2="147" y2="232" stroke="#4A5568" stroke-width="1.5" marker-end="url(#aDn)"/>
+  <line x1="363" y1="202" x2="363" y2="232" stroke="#4A5568" stroke-width="1.5" marker-end="url(#aDn)"/>
+  <line x1="579" y1="202" x2="579" y2="232" stroke="#4A5568" stroke-width="1.5" marker-end="url(#aDn)"/>
+  <line x1="825" y1="202" x2="825" y2="232" stroke="#4A5568" stroke-width="1.5" marker-end="url(#aDn)"/>
+
+  <!-- Coupling labels: what flows down vs up -->
+  <text x="60" y="246" font-size="8.5" fill="#553C9A" font-weight="600">↓ Level 1 → Level 2: macro state ξ^j_t constrains micro dynamics, CVaR limits</text>
+  <text x="60" y="264" font-size="8.5" fill="#2B6CB0" font-weight="600">↑ Level 2 → Level 1: aggregate portfolio μ^(2)_{j,t} enters Level 1 cost via Ψ_j</text>
+
+  <!-- ══ LEVEL 2: Micro / Investors ══ -->
+  <rect x="30" y="284" width="940" height="172" rx="10" fill="url(#gL2)" stroke="#553C9A" stroke-width="2.5" filter="url(#sh)"/>
+  <rect x="30" y="284" width="940" height="36" rx="10" fill="#553C9A"/>
+  <rect x="30" y="308" width="940" height="12" fill="#553C9A"/>
+  <text x="500" y="305" text-anchor="middle" font-size="12" font-weight="700" fill="white">
+    Level 2 — Micro Investor / Firm Agents  (u ∈ [0,1] continuum within each group j)  ·  MFG + MFC mixed
+  </text>
+
+  <!-- L2 agent groups -->
+  <rect x="52"  y="307" width="290" height="138" rx="7" fill="white" fill-opacity="0.75" stroke="#553C9A" stroke-width="1.5"/>
+  <text x="197" y="325" text-anchor="middle" font-size="10.5" font-weight="700" fill="#44337A">Institutional Investors</text>
+  <text x="197" y="340" text-anchor="middle" font-size="8.5" fill="#4A5568">State: x^{j,u}_t ∈ ℝ^{d₂}  (portfolio weights, P&amp;L, risk)</text>
+  <text x="197" y="354" text-anchor="middle" font-size="8" fill="#4A5568">dx^{j,u} = b₂(x^{j,u}, μ^(2)_j, ξ^j, a^{j,u}) dt + σ₂ dW^{j,u}</text>
+  <text x="197" y="368" text-anchor="middle" font-size="8.5" fill="#C05621">Control: a^{j,u} = portfolio rebalancing action</text>
+  <line x1="60" y1="378" x2="334" y2="378" stroke="#D6BCFA" stroke-width="1"/>
+  <text x="197" y="393" text-anchor="middle" font-size="8" fill="#4A5568">Cost: J^{j,u}_2 = E[∫(running cost + mean-field interaction) dt + terminal]</text>
+  <text x="197" y="407" text-anchor="middle" font-size="8.5" fill="#276749" font-weight="600">MFG: each u optimises vs aggregate μ^(2)_j</text>
+  <text x="197" y="420" text-anchor="middle" font-size="8.5" fill="#2B6CB0">MFC: cooperative firms minimise social cost</text>
+  <text x="197" y="434" text-anchor="middle" font-size="8" fill="#4A5568">Risk: CVaR₉₅(P&amp;L) ≤ budget set by ξ^j (Level 1)</text>
+
+  <rect x="360" y="307" width="280" height="138" rx="7" fill="white" fill-opacity="0.75" stroke="#553C9A" stroke-width="1.5"/>
+  <text x="500" y="325" text-anchor="middle" font-size="10.5" font-weight="700" fill="#44337A">HFT / Market-Makers</text>
+  <text x="500" y="340" text-anchor="middle" font-size="8.5" fill="#4A5568">State: x^{j,u}_t = (inventory, spread, fill-rate)</text>
+  <text x="500" y="354" text-anchor="middle" font-size="8" fill="#4A5568">Micro-structure interaction via mean-field term</text>
+  <text x="500" y="368" text-anchor="middle" font-size="8.5" fill="#C05621">Control: quote aggressiveness a^{j,u}</text>
+  <line x1="368" y1="378" x2="632" y2="378" stroke="#D6BCFA" stroke-width="1"/>
+  <text x="500" y="393" text-anchor="middle" font-size="8" fill="#4A5568">Liquidity provision modelled as MFC: social</text>
+  <text x="500" y="407" text-anchor="middle" font-size="8" fill="#4A5568">welfare = total transaction cost minimisation</text>
+  <text x="500" y="421" text-anchor="middle" font-size="8.5" fill="#276749" font-weight="600">Bid-ask spread emerges from equilibrium</text>
+  <text x="500" y="435" text-anchor="middle" font-size="8" fill="#4A5568">Capital controls from ξ^j enter inventory limits</text>
+
+  <rect x="658" y="307" width="290" height="138" rx="7" fill="#EDE9FE" fill-opacity="0.90" stroke="#553C9A" stroke-width="1.5"/>
+  <text x="803" y="325" text-anchor="middle" font-size="10.5" font-weight="700" fill="#44337A">Theorem 7.4 — Existence &amp; Uniqueness</text>
+  <text x="803" y="341" text-anchor="middle" font-size="8.5" fill="#2D3748">Under Lasry-Lions monotonicity +</text>
+  <text x="803" y="355" text-anchor="middle" font-size="8.5" fill="#2D3748">Lipschitz coefficients b₁, b₂ and</text>
+  <text x="803" y="369" text-anchor="middle" font-size="8.5" fill="#2D3748">bounded σ₁, σ₂, a unique hierarchical</text>
+  <text x="803" y="383" text-anchor="middle" font-size="8.5" fill="#553C9A" font-weight="600">Nash equilibrium (α*¹, …, α*^N; a*) exists</text>
+  <line x1="668" y1="392" x2="940" y2="392" stroke="#D6BCFA" stroke-width="1"/>
+  <text x="803" y="408" text-anchor="middle" font-size="8.5" fill="#2D3748">L1 FPK + L2 FPK form closed coupled system.</text>
+  <text x="803" y="420" text-anchor="middle" font-size="8" fill="#276749" font-weight="600">Fixed-point iteration converges in W₂ metric.</text>
+  <text x="803" y="433" text-anchor="middle" font-size="8" fill="#4A5568">Proof: Schauder fixed-point thm on P(P(ℝ^{d₂}))</text>
+
+  <!-- Down arrows from coupling band to L2 -->
+  <line x1="197" y1="274" x2="197" y2="307" stroke="#553C9A" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#aDnB)"/>
+  <line x1="500" y1="274" x2="500" y2="307" stroke="#553C9A" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#aDnB)"/>
+  <line x1="803" y1="274" x2="803" y2="307" stroke="#553C9A" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#aDnB)"/>
+
+  <!-- ══ BOTTOM: The PDE system ══ -->
+  <rect x="30" y="468" width="940" height="76" rx="8" fill="#2D3748" fill-opacity="0.04" stroke="#2D3748" stroke-width="1.5"/>
+  <text x="500" y="486" text-anchor="middle" font-size="10" font-weight="700" fill="#2D3748">Coupled PDE System — Solved by DGM + Neural Fictitious Play</text>
+  <line x1="40" y1="492" x2="960" y2="492" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="100" y="508" font-size="9" fill="#4A5568">L1 HJB:</text>
+  <text x="145" y="508" font-size="9" fill="#2D3748">0 = ∂_t V¹_j  +  H¹(ξ^j, ∇V¹_j, ν^(1))    (j = 1,…,N)</text>
+  <text x="100" y="525" font-size="9" fill="#4A5568">L1 FPK:</text>
+  <text x="145" y="525" font-size="9" fill="#2D3748">∂_t ν^(1)  =  −∇·(b¹_α* ν^(1))  +  ½ σ₁² Δν^(1)</text>
+  <text x="500" y="508" font-size="9" fill="#4A5568">L2 HJB:</text>
+  <text x="545" y="508" font-size="9" fill="#2D3748">0 = ∂_t V²  +  H²(x, ∇V², μ^(2)_j, ξ^j)    ∀u ∈ [0,1]</text>
+  <text x="500" y="525" font-size="9" fill="#4A5568">L2 FPK:</text>
+  <text x="545" y="525" font-size="9" fill="#2D3748">∂_t μ^(2)_j  =  −∇·(b²_a* μ^(2)_j)  +  ½ σ₂² Δμ^(2)_j</text>
+  <text x="500" y="540" text-anchor="middle" font-size="8.5" fill="#718096">Four coupled nonlinear PDEs → solved simultaneously by alternating L1/L2 DGM passes + Neural Fictitious Play for μ updates</text>
+
+</svg>
