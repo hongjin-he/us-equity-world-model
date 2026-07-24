@@ -1,0 +1,359 @@
+<svg viewBox="0 0 1000 534" xmlns="http://www.w3.org/2000/svg"
+     font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <!-- Module gradients -->
+    <linearGradient id="g-enc" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#EBF8FF"/>
+      <stop offset="100%" stop-color="#CEEDFC"/>
+    </linearGradient>
+    <linearGradient id="g-game" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#FAF5FF"/>
+      <stop offset="100%" stop-color="#E9D8FD"/>
+    </linearGradient>
+    <linearGradient id="g-ctrl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#F0FFF4"/>
+      <stop offset="100%" stop-color="#C6F6D5"/>
+    </linearGradient>
+    <!-- Arrowhead markers -->
+    <marker id="arr"      viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#4A5568"/>
+    </marker>
+    <marker id="arr-pred" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#C05621"/>
+    </marker>
+    <marker id="arr-out"  viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#276749"/>
+    </marker>
+    <!-- Box shadow -->
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#1A202C" flood-opacity="0.10"/>
+    </filter>
+    <!-- Clip paths for module headers (rounded top, flat bottom) -->
+    <clipPath id="clip-enc">
+      <rect x="20" y="75" width="290" height="45" rx="10"/>
+    </clipPath>
+    <clipPath id="clip-game">
+      <rect x="354" y="75" width="292" height="45" rx="10"/>
+    </clipPath>
+    <clipPath id="clip-ctrl">
+      <rect x="690" y="75" width="290" height="45" rx="10"/>
+    </clipPath>
+  </defs>
+
+  <!-- ── Page background ── -->
+  <rect width="1000" height="534" fill="#FAFBFC" rx="10"/>
+
+  <!-- ── Title block ── -->
+  <text x="500" y="30" text-anchor="middle"
+        font-size="16" font-weight="700" fill="#1A202C" letter-spacing="0.2">
+    E-Game-C Architecture
+  </text>
+  <text x="500" y="50" text-anchor="middle" font-size="10.5" fill="#718096">
+    Three co-designed modules: raw market data → mean-field equilibrium → risk-constrained execution
+  </text>
+  <line x1="20" y1="60" x2="980" y2="60" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       MODULE E — ENCODER
+       x=20..310  y=75..470
+  ══════════════════════════════════════════════════════════════ -->
+  <!-- Full box (gradient body + border) -->
+  <rect x="20" y="75" width="290" height="395" rx="10"
+        fill="url(#g-enc)" stroke="#2B6CB0" stroke-width="2" filter="url(#shadow)"/>
+  <!-- Header fill (solid, clips to rounded top) -->
+  <rect x="20" y="75" width="290" height="46" rx="10" fill="#2B6CB0" clip-path="url(#clip-enc)"/>
+  <rect x="20" y="99"  width="290" height="22" fill="#2B6CB0"/>  <!-- bottom half of header -->
+  <!-- Header text -->
+  <text x="50" y="104" font-size="24" font-weight="900" fill="white" opacity="0.18">E</text>
+  <text x="165" y="99" text-anchor="middle" font-size="13.5" font-weight="700" fill="white">Encoder</text>
+  <text x="165" y="114" text-anchor="middle" font-size="10" fill="#BEE3F8">Transformer VAE · d_z = 64</text>
+
+  <!-- ▸ Input data chips (4 rows inside Encoder) -->
+  <text x="35" y="139" font-size="9" font-weight="700" fill="#2C5282" letter-spacing="0.5">INPUT  I_t</text>
+  <!-- chip row 1 -->
+  <rect x="31" y="145" width="66" height="19" rx="4" fill="white" stroke="#BEE3F8" stroke-width="1"/>
+  <text x="64" y="158" text-anchor="middle" font-size="8.5" fill="#2B6CB0" font-weight="600">OHLCV</text>
+  <rect x="103" y="145" width="68" height="19" rx="4" fill="white" stroke="#BEE3F8" stroke-width="1"/>
+  <text x="137" y="158" text-anchor="middle" font-size="8.5" fill="#2B6CB0" font-weight="600">13F Filings</text>
+  <rect x="177" y="145" width="58" height="19" rx="4" fill="white" stroke="#BEE3F8" stroke-width="1"/>
+  <text x="206" y="158" text-anchor="middle" font-size="8.5" fill="#2B6CB0" font-weight="600">Macro</text>
+  <rect x="241" y="145" width="62" height="19" rx="4" fill="white" stroke="#BEE3F8" stroke-width="1"/>
+  <text x="272" y="158" text-anchor="middle" font-size="8.5" fill="#2B6CB0" font-weight="600">News emb.</text>
+
+  <line x1="30" y1="172" x2="304" y2="172" stroke="#BEE3F8" stroke-width="1"/>
+
+  <!-- ▸ Architecture -->
+  <text x="35" y="188" font-size="9" font-weight="700" fill="#2C5282" letter-spacing="0.5">ARCHITECTURE</text>
+  <text x="35" y="203" font-size="9" fill="#2D3748">4-layer Transformer encoder (d_model = 256, 8 heads)</text>
+  <text x="35" y="216" font-size="9" fill="#2D3748">Reparameterization: ε ~ N(0, I)</text>
+
+  <line x1="30" y1="225" x2="304" y2="225" stroke="#BEE3F8" stroke-width="1"/>
+
+  <!-- ▸ Encoding equation -->
+  <text x="35" y="241" font-size="9" font-weight="700" fill="#2C5282" letter-spacing="0.5">LATENT ENCODING</text>
+  <rect x="30" y="247" width="275" height="30" rx="5" fill="white" fill-opacity="0.7"/>
+  <!-- z_t = μ_φ(I_t) + ε · σ_φ(I_t) -->
+  <text x="167" y="267" text-anchor="middle" font-size="11.5" fill="#1A365D">
+    z<tspan dy="3" font-size="8">t</tspan>
+    <tspan dy="-3" font-size="11.5"> = μ</tspan>
+    <tspan dy="3" font-size="8">φ</tspan>
+    <tspan dy="-3" font-size="11.5">(I</tspan>
+    <tspan dy="3" font-size="8">t</tspan>
+    <tspan dy="-3" font-size="11.5">) + ε · σ</tspan>
+    <tspan dy="3" font-size="8">φ</tspan>
+    <tspan dy="-3" font-size="11.5">(I</tspan>
+    <tspan dy="3" font-size="8">t</tspan>
+    <tspan dy="-3" font-size="11.5">)</tspan>
+  </text>
+
+  <line x1="30" y1="285" x2="304" y2="285" stroke="#BEE3F8" stroke-width="1"/>
+
+  <!-- ▸ Training loss -->
+  <text x="35" y="300" font-size="9" font-weight="700" fill="#2C5282" letter-spacing="0.5">TRAINING LOSS  (3 terms)</text>
+  <text x="35" y="314" font-size="9" fill="#2D3748">
+    ℒ = ℒ<tspan dy="3" font-size="7">recon</tspan>
+    <tspan dy="-3" font-size="9">  +  β · KL(q ‖ p)  +  λ · ℒ</tspan>
+    <tspan dy="3" font-size="7">pred</tspan>
+  </text>
+  <text x="35" y="328" font-size="8.5" fill="#4A5568">β-warmup (0.01→1.0) prevents KL collapse</text>
+  <text x="35" y="341" font-size="8.5" fill="#4A5568">EWC penalty preserves past regime knowledge</text>
+
+  <line x1="30" y1="351" x2="304" y2="351" stroke="#BEE3F8" stroke-width="1"/>
+
+  <!-- ▸ Theorem 1 badge -->
+  <rect x="30" y="358" width="275" height="100" rx="6"
+        fill="#2B6CB0" fill-opacity="0.06" stroke="#2B6CB0" stroke-width="1.2"/>
+  <text x="167" y="376" text-anchor="middle" font-size="9" font-weight="700" fill="#2C5282">
+    Theorem 1 — Cramér-Rao Bound
+  </text>
+  <line x1="40" y1="381" x2="295" y2="381" stroke="#BEE3F8" stroke-width="0.8"/>
+  <!-- Dual noise bound equation -->
+  <text x="167" y="399" text-anchor="middle" font-size="11" fill="#1A365D">
+    Var(μ̂) ≥ σ<tspan dy="3" font-size="8">τ</tspan>
+    <tspan dy="-3" font-size="11">² / Δt  +  ν</tspan>
+    <tspan dy="3" font-size="8">η</tspan>
+    <tspan dy="-3" font-size="11">(ℝ)</tspan>
+  </text>
+  <text x="167" y="416" text-anchor="middle" font-size="8.5" fill="#2D3748">
+    Physical: decreases with sampling freq.
+  </text>
+  <text x="167" y="430" text-anchor="middle" font-size="8.5" fill="#C05621" font-weight="600">
+    Behavioral: freq.-independent → must model it
+  </text>
+  <text x="167" y="446" text-anchor="middle" font-size="8" fill="#718096">
+    Calibration: BPV → σ_τ²  ·  RV − BPV → ν_η
+  </text>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       ARROW  E → G
+       center y = 280
+  ══════════════════════════════════════════════════════════════ -->
+  <line x1="311" y1="280" x2="351" y2="280"
+        stroke="#4A5568" stroke-width="2.2" marker-end="url(#arr)"/>
+  <!-- Dimension label -->
+  <rect x="308" y="258" width="46" height="18" rx="4"
+        fill="#EBF8FF" stroke="#2B6CB0" stroke-width="1"/>
+  <text x="331" y="271" text-anchor="middle" font-size="8" fill="#2C5282" font-weight="700">
+    z<tspan dy="2" font-size="6.5">t</tspan>
+    <tspan dy="-2" font-size="8"> ∈ ℝ</tspan>
+    <tspan dy="-3" font-size="6.5">64</tspan>
+  </text>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       MODULE G — MEAN-FIELD GAME
+       x=354..646  y=75..470
+  ══════════════════════════════════════════════════════════════ -->
+  <rect x="354" y="75" width="292" height="395" rx="10"
+        fill="url(#g-game)" stroke="#553C9A" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="354" y="75" width="292" height="46" rx="10" fill="#553C9A" clip-path="url(#clip-game)"/>
+  <rect x="354" y="99"  width="292" height="22" fill="#553C9A"/>
+  <text x="382" y="104" font-size="24" font-weight="900" fill="white" opacity="0.18">G</text>
+  <text x="500" y="99" text-anchor="middle" font-size="13.5" font-weight="700" fill="white">Mean-Field Game</text>
+  <text x="500" y="114" text-anchor="middle" font-size="10" fill="#D6BCFA">DGM Solver · Neural Fictitious Play</text>
+
+  <!-- ▸ HJB equation -->
+  <text x="369" y="139" font-size="9" font-weight="700" fill="#44337A" letter-spacing="0.5">HJB EQUATION  (value function V*)</text>
+  <rect x="364" y="145" width="277" height="30" rx="5" fill="white" fill-opacity="0.7"/>
+  <text x="500" y="165" text-anchor="middle" font-size="11.5" fill="#322659">
+    −∂<tspan dy="3" font-size="8">t</tspan>
+    <tspan dy="-3" font-size="11.5"> V = H(z, ∇V, m*)</tspan>
+  </text>
+
+  <line x1="364" y1="183" x2="636" y2="183" stroke="#D6BCFA" stroke-width="1"/>
+
+  <!-- ▸ FPK equation -->
+  <text x="369" y="199" font-size="9" font-weight="700" fill="#44337A" letter-spacing="0.5">FPK EQUATION  (agent distribution m*)</text>
+  <rect x="364" y="205" width="277" height="30" rx="5" fill="white" fill-opacity="0.7"/>
+  <text x="500" y="225" text-anchor="middle" font-size="11.5" fill="#322659">
+    ∂<tspan dy="3" font-size="8">t</tspan>
+    <tspan dy="-3" font-size="11.5"> m = −div(b*m) + ½ Δ(am)</tspan>
+  </text>
+
+  <line x1="364" y1="243" x2="636" y2="243" stroke="#D6BCFA" stroke-width="1"/>
+
+  <!-- ▸ DGM solver details -->
+  <text x="369" y="259" font-size="9" font-weight="700" fill="#44337A" letter-spacing="0.5">DGM SOLVER  (JAX / XLA)</text>
+  <text x="369" y="273" font-size="9" fill="#2D3748">V<tspan dy="3" font-size="7">θ</tspan><tspan dy="-3">(z,t) minimizes PDE residual over Sobol samples</tspan></text>
+  <text x="369" y="286" font-size="9" fill="#2D3748">DGM gating prevents vanishing gradients in deep PDE nets</text>
+  <text x="369" y="299" font-size="9" fill="#2D3748">GPU-native XLA compilation (A100 × 4)</text>
+
+  <line x1="364" y1="309" x2="636" y2="309" stroke="#D6BCFA" stroke-width="1"/>
+
+  <!-- ▸ Neural Fictitious Play -->
+  <text x="369" y="325" font-size="9" font-weight="700" fill="#44337A" letter-spacing="0.5">NEURAL FICTITIOUS PLAY  (K = 1000 particles)</text>
+  <text x="369" y="339" font-size="9" fill="#2D3748">Each outer iter: re-solve HJB → propagate particle cloud</text>
+  <text x="369" y="352" font-size="9" fill="#2D3748">Warm start from yesterday's cloud: ~12 iters vs. ~50</text>
+
+  <line x1="364" y1="361" x2="636" y2="361" stroke="#D6BCFA" stroke-width="1"/>
+
+  <!-- ▸ Theorem 2 badge -->
+  <rect x="364" y="368" width="277" height="95" rx="6"
+        fill="#553C9A" fill-opacity="0.06" stroke="#553C9A" stroke-width="1.2"/>
+  <text x="500" y="386" text-anchor="middle" font-size="9" font-weight="700" fill="#44337A">
+    Theorem 2 — Unique Nash Equilibrium
+  </text>
+  <line x1="374" y1="391" x2="630" y2="391" stroke="#D6BCFA" stroke-width="0.8"/>
+  <!-- Monotonicity condition -->
+  <text x="500" y="408" text-anchor="middle" font-size="9.5" fill="#322659">
+    ∫ (F(x,m) − F(x,m̃)) d(m − m̃) ≥ 0
+  </text>
+  <!-- W2 convergence -->
+  <text x="500" y="426" text-anchor="middle" font-size="11" fill="#322659">
+    W<tspan dy="3" font-size="8">2</tspan>
+    <tspan dy="-3">(m</tspan>
+    <tspan dy="-4" font-size="8">(n)</tspan>
+    <tspan dy="4" font-size="11">, m*) ≤ C ρ</tspan>
+    <tspan dy="-4" font-size="8">n</tspan>
+    <tspan dy="4" font-size="11">,  ρ ∈ (0,1)</tspan>
+  </text>
+  <text x="500" y="443" text-anchor="middle" font-size="8.5" fill="#4A5568">
+    Convergence rate confirmed at ρ ≈ 0.72 on synthetic S&amp;P 500
+  </text>
+  <text x="500" y="456" text-anchor="middle" font-size="8" fill="#718096">
+    Lasry-Lions monotonicity → uniqueness of (V*, m*) pair
+  </text>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       ARROW  G → C
+       center y = 280
+  ══════════════════════════════════════════════════════════════ -->
+  <line x1="647" y1="280" x2="687" y2="280"
+        stroke="#4A5568" stroke-width="2.2" marker-end="url(#arr)"/>
+  <!-- Labels: V* and m* -->
+  <rect x="643" y="253" width="46" height="24" rx="4"
+        fill="#FAF5FF" stroke="#553C9A" stroke-width="1"/>
+  <text x="666" y="265" text-anchor="middle" font-size="8" fill="#44337A" font-weight="700">V*(z,t)</text>
+  <text x="666" y="275" text-anchor="middle" font-size="8" fill="#44337A" font-weight="700">m*(z,t)</text>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       MODULE C — CONTROLLER
+       x=690..980  y=75..470
+  ══════════════════════════════════════════════════════════════ -->
+  <rect x="690" y="75" width="290" height="395" rx="10"
+        fill="url(#g-ctrl)" stroke="#276749" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="690" y="75" width="290" height="46" rx="10" fill="#276749" clip-path="url(#clip-ctrl)"/>
+  <rect x="690" y="99"  width="290" height="22" fill="#276749"/>
+  <text x="718" y="104" font-size="24" font-weight="900" fill="white" opacity="0.18">C</text>
+  <text x="835" y="99" text-anchor="middle" font-size="13.5" font-weight="700" fill="white">Controller</text>
+  <text x="835" y="114" text-anchor="middle" font-size="10" fill="#C6F6D5">Risk-Constrained Portfolio</text>
+
+  <!-- ▸ Optimal policy (HJB FOC) -->
+  <text x="705" y="139" font-size="9" font-weight="700" fill="#1C4532" letter-spacing="0.5">OPTIMAL POLICY  (HJB first-order condition)</text>
+  <rect x="700" y="145" width="275" height="30" rx="5" fill="white" fill-opacity="0.7"/>
+  <text x="837" y="165" text-anchor="middle" font-size="11.5" fill="#1C4532">
+    α*(z) = ∇<tspan dy="3" font-size="8">z</tspan>
+    <tspan dy="-3"> V* / (2γκ)</tspan>
+  </text>
+
+  <line x1="700" y1="183" x2="974" y2="183" stroke="#C6F6D5" stroke-width="1"/>
+
+  <!-- ▸ Risk projection -->
+  <text x="705" y="199" font-size="9" font-weight="700" fill="#1C4532" letter-spacing="0.5">RISK PROJECTION  (SLSQP)</text>
+  <rect x="700" y="205" width="275" height="42" rx="5" fill="white" fill-opacity="0.7"/>
+  <text x="837" y="221" text-anchor="middle" font-size="10" fill="#1C4532">min ‖w − w<tspan dy="3" font-size="7">raw</tspan><tspan dy="-3" font-size="10">‖²</tspan></text>
+  <text x="837" y="237" text-anchor="middle" font-size="9.5" fill="#1C4532">s.t.  CVaR<tspan dy="3" font-size="7">5%</tspan><tspan dy="-3"> ≥ −3%  ·  |w|</tspan><tspan dy="-3" font-size="7">1</tspan><tspan dy="3"> ≤ 2</tspan></text>
+
+  <line x1="700" y1="255" x2="974" y2="255" stroke="#C6F6D5" stroke-width="1"/>
+
+  <!-- ▸ Lyapunov monitor -->
+  <text x="705" y="271" font-size="9" font-weight="700" fill="#1C4532" letter-spacing="0.5">LYAPUNOV REGIME MONITOR  (intraday)</text>
+  <text x="705" y="285" font-size="9" fill="#2D3748">Λ<tspan dy="3" font-size="7">t</tspan><tspan dy="-3"> = ℒV(z</tspan><tspan dy="3" font-size="7">t</tspan><tspan dy="-3">) / V(z</tspan><tspan dy="3" font-size="7">t</tspan><tspan dy="-3">)  computed every 15 min</tspan></text>
+  <text x="705" y="298" font-size="9" fill="#2D3748">Λ<tspan dy="3" font-size="7">t</tspan><tspan dy="-3"> &gt; 0.85 → halve leverage, CVaR tightens to 2%</tspan></text>
+  <text x="705" y="311" font-size="9" fill="#C05621" font-weight="600">⚡ COVID Feb 20, 2020: Λ = 0.83 → ALERT (5d lead)</text>
+
+  <line x1="700" y1="321" x2="974" y2="321" stroke="#C6F6D5" stroke-width="1"/>
+
+  <!-- ▸ Execution -->
+  <text x="705" y="337" font-size="9" font-weight="700" fill="#1C4532" letter-spacing="0.5">EXECUTION</text>
+  <text x="705" y="351" font-size="9" fill="#2D3748">Paper: Alpaca API (free, no capital required)</text>
+  <text x="705" y="364" font-size="9" fill="#2D3748">Production: IBKR FIX 4.2 · max 10% ADV</text>
+
+  <line x1="700" y1="374" x2="974" y2="374" stroke="#C6F6D5" stroke-width="1"/>
+
+  <!-- ▸ Theorem 3 badge -->
+  <rect x="700" y="381" width="275" height="82" rx="6"
+        fill="#276749" fill-opacity="0.07" stroke="#276749" stroke-width="1.2"/>
+  <text x="837" y="399" text-anchor="middle" font-size="9" font-weight="700" fill="#1C4532">
+    Theorem 3 — Stochastic Lyapunov Stability
+  </text>
+  <line x1="710" y1="404" x2="964" y2="404" stroke="#C6F6D5" stroke-width="0.8"/>
+  <text x="837" y="421" text-anchor="middle" font-size="11" fill="#1C4532">
+    |Law(z<tspan dy="3" font-size="8">t</tspan>
+    <tspan dy="-3">) − π*|</tspan>
+    <tspan dy="3" font-size="8">TV</tspan>
+    <tspan dy="-3"> ≤ K e</tspan>
+    <tspan dy="-4" font-size="8">−ct</tspan>
+  </text>
+  <text x="837" y="438" text-anchor="middle" font-size="8.5" fill="#2D3748">
+    ℒV(z) ≤ −λV(z) + C  (single stable attractor)
+  </text>
+  <text x="837" y="453" text-anchor="middle" font-size="8.5" fill="#4A5568">
+    Crises = local Lyapunov violations · Λ<tspan dy="3" font-size="7">t</tspan><tspan dy="-3"> leads prices</tspan>
+  </text>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       PREDICTIVE COUPLING FEEDBACK ARC
+       From Game top (≈ x=500, y=75) curves up to Encoder top (≈ x=165, y=75)
+  ══════════════════════════════════════════════════════════════ -->
+  <path d="M 560,76 C 560,36 110,36 110,76"
+        fill="none" stroke="#C05621" stroke-width="2"
+        stroke-dasharray="7,4" marker-end="url(#arr-pred)"/>
+  <!-- Label on the arc -->
+  <rect x="253" y="16" width="172" height="18" rx="5"
+        fill="#FFFFF0" stroke="#C05621" stroke-width="1.2"/>
+  <text x="339" y="29" text-anchor="middle" font-size="8.5" fill="#C05621" font-weight="700">
+    Predictive coupling loss  λ · ℒ<tspan dy="3" font-size="6.5">pred</tspan>
+  </text>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       OUTPUT ARROW  →  w* ∈ ℝᴺ
+  ══════════════════════════════════════════════════════════════ -->
+  <!-- (no arrow to right edge since Controller is at x=980 already)
+       instead show the output label within the figure -->
+
+  <!-- ══════════════════════════════════════════════════════════════
+       BOTTOM SUMMARY BAR
+  ══════════════════════════════════════════════════════════════ -->
+  <rect x="20" y="482" width="960" height="42" rx="7" fill="#EDF2F7"/>
+
+  <!-- Three column summary: one per module -->
+  <text x="163" y="497" text-anchor="middle" font-size="8.5" font-weight="700" fill="#2C5282">E outputs</text>
+  <text x="163" y="510" text-anchor="middle" font-size="8.5" fill="#4A5568">z_t ∈ ℝ⁶⁴  (64-dim latent state)</text>
+  <text x="163" y="521" text-anchor="middle" font-size="8" fill="#718096">σ_τ², ν_η calibrated per asset</text>
+
+  <line x1="333" y1="485" x2="333" y2="521" stroke="#CBD5E0" stroke-width="1"/>
+
+  <text x="498" y="497" text-anchor="middle" font-size="8.5" font-weight="700" fill="#44337A">G outputs</text>
+  <text x="498" y="510" text-anchor="middle" font-size="8.5" fill="#4A5568">V*(z,t) value func. · m*(z,t) agent dist.</text>
+  <text x="498" y="521" text-anchor="middle" font-size="8" fill="#718096">W₂ residual &lt; 0.01 at convergence</text>
+
+  <line x1="663" y1="485" x2="663" y2="521" stroke="#CBD5E0" stroke-width="1"/>
+
+  <text x="828" y="497" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1C4532">C outputs</text>
+  <text x="828" y="510" text-anchor="middle" font-size="8.5" fill="#4A5568">w* ∈ ℝᴺ portfolio weights · Λ_t regime flag</text>
+  <text x="828" y="521" text-anchor="middle" font-size="8" fill="#718096">CVaR₅% ≤ 3%/day · leverage ≤ 2×</text>
+
+</svg>

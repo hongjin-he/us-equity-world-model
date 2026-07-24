@@ -74,42 +74,9 @@ Physical volatility barely moved. GME's fundamentals (a struggling brick-and-mor
 
 ## The Architecture: E → Game → C
 
-Three modules co-designed for the mathematics of financial markets:
+![E-Game-C Architecture](figures/egamec_architecture.svg)
 
-```
-Market Information  I_t
-(OHLCV · 13F filings · macro state · news embeddings)
-         │
-         ▼
-┌─────────────────────────────────────────┐
-│               E — Encoder               │
-│         Transformer VAE (d_z=64)        │
-│   I_t  →  z_t = (μ_φ, Σ_φ)(I_t) ∈ ℝ⁶⁴ │
-│  Loss: recon + β·KL + λ·pred_coupling  │
-└─────────────────────────────────────────┘
-         │  z_t  (latent market state)
-         ▼
-┌─────────────────────────────────────────┐
-│           Game — MFG Equilibrium        │
-│  HJB:  −∂_t V = H(z, ∇V, m*)          │
-│  FPK:  ∂_t m = −div(b* m) + ½Δ(a m)  │
-│  Solver: DGM (JAX) + Neural Fictitious  │
-│  Result: V*(z,t) · m*(z,t) [unique]    │
-└─────────────────────────────────────────┘
-         │  V*(z_t), m*(z_t)
-         ▼
-┌─────────────────────────────────────────┐
-│            C — Controller               │
-│   α*(z) = ∇_z V* / (2γκ)              │
-│   Project: CVaR₅% ≤ 3% · |w|₁ ≤ 2    │
-│   Risk-constrained portfolio weights   │
-└─────────────────────────────────────────┘
-         │  w* ∈ ℝᴺ
-         ▼
-Alpaca Paper Trading → IBKR FIX Protocol
-```
-
-The **predictive coupling loss** (λ · pred_loss) jointly trains Encoder and Game: the Game predicts next latent state $z_{t+1}$, while the Encoder is trained to match this prediction. The world model learns to predict *equilibrium dynamics*, not just reconstruct current state.
+The **predictive coupling loss** (λ · ℒ_pred, shown as the orange dashed arc) jointly trains Encoder and Game: the Game predicts next latent state z_{t+1}, while the Encoder is trained to match this prediction. The world model learns to predict *equilibrium dynamics*, not just reconstruct current state.
 
 ---
 
