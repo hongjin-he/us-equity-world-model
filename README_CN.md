@@ -10,8 +10,8 @@
 
 ---
 
-[![Stars](https://img.shields.io/github/stars/hongjin-he/World-Model-For-Quant-Company?style=social)](https://github.com/hongjin-he/World-Model-For-Quant-Company/stargazers)
-[![Forks](https://img.shields.io/github/forks/hongjin-he/World-Model-For-Quant-Company?style=social)](https://github.com/hongjin-he/World-Model-For-Quant-Company/network/members)
+[![Stars](https://img.shields.io/github/stars/hongjin-he/MicroWorld?style=social)](https://github.com/hongjin-he/MicroWorld/stargazers)
+[![Forks](https://img.shields.io/github/forks/hongjin-he/MicroWorld?style=social)](https://github.com/hongjin-he/MicroWorld/network/members)
 
 [![Paper](https://img.shields.io/badge/配套论文-Alpha%20Flow%2002-red.svg)](https://github.com/hongjin-he/mathmatical-framework-for-world-models-in-quant-finance)
 [![Implementation](https://img.shields.io/badge/工程实现-MicroWorld--Impl-blueviolet.svg)](https://github.com/hongjin-he/us-equity-world-model)
@@ -26,6 +26,17 @@
 **Alpha Flow Research · 何鸿锦 · 香港科技大学 / 斯坦福 IHP · 2026年7月**
 
 </div>
+
+
+---
+
+### 世界模型的心跳（英文版完整內容）
+
+![MicroWorld 全局動態演示](figures/global_demo.gif)
+
+*兩年模擬市場，框架的每一層同時演化——事件算子觸發（含 IPO n 8→9、破產 n 9→8）、平均場密度形變、Lyapunov 危機指標提前 22 個交易日預警、控制器自動降風險。全部由本 repo 代碼生成，零 API 密鑰：`python demo/global_demo.py`*
+
+> 📌 **本中文版對應 v1 敘事框架。** 最新完整內容請見 [英文版 README](README.md)，新增：Type 1/2 世界模型、E-Game-C 架構詳解、**22 個事件算子完整目錄**、七大定理總表、反身性形式化、Agent 分類法（6 機構類 + 5 散戶原型）、**[完整數據需求與實驗路線圖](DATA_REQUIREMENTS.md)**（E1–E6 六個實驗設計）、17 天筆記本索引、Related Work 對比與 40 篇參考文獻。
 
 ---
 

@@ -313,13 +313,25 @@ class RetailAIAgent:
         adoption_end: float = 0.80,
         n_assets: int = 10,
         n_investors: int = 5000,
+        n_seeds: int = 8,
     ) -> dict:
         """
         Simulate how signal quality and crowding change as AI adoption grows.
 
-        As adoption_rate → 1, retail strategies homogenize → stronger
-        institutional signal, but also more fragile (synchronized retail
-        panic risk).
+        The key mechanism is HOMOGENIZATION, not aggregation: retail users
+        querying the same handful of LLM platforms receive the *same*
+        recommendation c_t (the platform consensus). The effective retail
+        allocation is a mixture
+
+            μ_retail = (1 − h(a)) · μ_idiosyncratic + h(a) · c_t
+
+        where h(a) = platform concentration, increasing in the adoption
+        rate a (few platforms serve everyone → answers correlate). As a → 1:
+          - μ_retail collapses onto c_t → institutional fade signal strengthens
+          - ‖μ_retail − uniform‖ grows → synchronized-panic fragility grows
+
+        This is the Day 16 thesis in quantitative form: individual AI use is
+        rational; universal AI use is legible — and therefore exploitable.
 
         Returns
         -------
@@ -329,15 +341,27 @@ class RetailAIAgent:
         adoption_rates = np.linspace(adoption_start, adoption_end, T)
         signal_strengths = np.zeros(T)
         crowding_risks = np.zeros(T)
+        uniform = 1.0 / n_assets
 
         for t, rate in enumerate(adoption_rates):
-            agent = RetailAIAgent(tickers_temp, ai_adoption_rate=rate, rng=self.rng)
-            mu = agent.step(n_investors=n_investors)
-            sig = agent.institutional_signal(mu, noise_level=0.005)
+            sig_acc, crowd_acc = 0.0, 0.0
+            for s in range(n_seeds):
+                seed_rng = np.random.default_rng(10_000 * s + t)
+                agent = RetailAIAgent(tickers_temp, ai_adoption_rate=rate, rng=seed_rng)
+                mu_idio = agent.step(n_investors=n_investors)
 
-            signal_strengths[t] = np.abs(sig).mean()
-            # Crowding = deviation of retail flow from uniform
-            crowding_risks[t] = np.sqrt(np.sum((mu - 1.0 / n_assets) ** 2))
+                # Platform consensus c_t: the answer "everyone" receives today —
+                # concentrated in a few trending names
+                trend = seed_rng.dirichlet(np.full(n_assets, 0.25))
+                h = 0.10 + 0.80 * rate          # platform concentration
+                mu = (1.0 - h) * mu_idio + h * trend
+
+                dev = mu - uniform
+                # Unnormalized fade-signal strength: exploitable deviation
+                sig_acc += np.sqrt(np.abs(dev)).mean()
+                crowd_acc += np.sqrt(np.sum(dev ** 2))
+            signal_strengths[t] = sig_acc / n_seeds
+            crowding_risks[t] = crowd_acc / n_seeds
 
         return {
             "adoption_rates": adoption_rates,
