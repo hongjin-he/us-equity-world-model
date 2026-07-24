@@ -51,6 +51,20 @@ The answer is yes. This repository presents that theory, and its engineering imp
 
 ---
 
+## Why This Question Is Urgent — Right Now
+
+Three simultaneous forces are breaking the old paradigm faster than at any point in history:
+
+**1. Factor alpha has a terminal illness.** Average alpha half-life: ~6 years in 1990, ~11 months in 2023. The decay is not a cycle — it is a structural consequence of AI-accelerated crowding. When every fund discovers the same signal within months of each other, the signal disappears before anyone profits. Factor models have no theory of *why* signals decay; they cannot detect the decay until it is complete.
+
+**2. LLMs are homogenizing retail behavior at scale.** Five hundred million retail investors are now asking the same three AI assistants the same questions and receiving the same answers. The behavioral noise term $\nu^\eta$ is simultaneously *increasing* (more retail coordination, larger jumps) and becoming *more predictable* (the coordination mechanism is now modelable). The old assumption that retail noise is unstructured is obsolete.
+
+**3. The Fields Medal just validated the paradigm.** In July 2026, Deng Yu (邓煜) received the Fields Medal for proving that N-body Newtonian mechanics converges — as $N\to\infty$ — to the Boltzmann equation. This is the mathematical paradigm we apply to finance: N rational agents converge to a Fokker-Planck-Kolmogorov equation. The FPK equation is the financial Boltzmann equation. Deng Yu's proof establishes the rigorous foundation for this class of large-population convergence results. We stand on that foundation.
+
+The window for building game-theoretic world models is now. The models that survive the next decade will be the ones built on mechanism, not pattern.
+
+---
+
 ## What Came Before — And Why It Falls Short
 
 ### I. Factor Models (CAPM, Fama-French, 600+ documented factors)
@@ -349,6 +363,50 @@ This is the multi-population Nash equilibrium — a fixed point in the space of 
 3. **Predict the predictor's prediction.** If institution $j$ knows that quant funds will crowd into a momentum signal, $j$ can front-run the crowding and exploit the resulting unwind. Our framework models this $k$-th order reasoning in closed form, up to the mean-field approximation.
 
 4. **Detect when the equilibrium is about to break.** The Lyapunov stability indicator (Component 5) detects when agents' beliefs diverge from equilibrium — the signal that a regime change is imminent.
+
+---
+
+### The Complete Coupled HJB-FPK System
+
+The four-level game produces eight coupled partial differential equations — four Hamilton-Jacobi-Bellman equations (value functions, backward in time) and four Fokker-Planck-Kolmogorov equations (distributions, forward in time). This is the mathematical spine of the entire framework: to know that an equilibrium exists and is unique, one must solve this system.
+
+**Level 0 — Cross-Market Game ($m \in \mathcal{M}$):**
+
+$$-\partial_t V^m_0 - H_0^m\!\left(\Gamma^m,\nabla_\Gamma V^m_0,\nu^{(0)}_t,\Phi_{m,\cdot}(t)\right) = 0, \qquad V^m_0(T,\Gamma) = g_0^m(\Gamma)$$
+
+$$\partial_t \nu^{(0)}_t + \nabla_\Gamma \cdot\!\left(b^{m,*}_0\,\nu^{(0)}_t\right) = \tfrac{\sigma_0^2}{2}\,\Delta_\Gamma\nu^{(0)}_t, \qquad \nu^{(0)}_0 = \mathrm{Law}(\Gamma_0)$$
+
+**Level 1 — Institution Types ($\tau \in \mathcal{T}$, multi-population):**
+
+$$-\partial_t V^{m,\tau}_1 - H_1^{m,\tau}\!\left(\xi,\nabla_\xi V^{m,\tau}_1,\{\mu^{(1,\tau')}_{m,t}\}_{\tau'\in\mathcal{T}},\Gamma^m_t\right) = 0$$
+
+$$\partial_t \mu^{(1,\tau)}_{m,t} + \nabla_\xi\cdot\!\left(b^{\tau,*}_1\,\mu^{(1,\tau)}_{m,t}\right) = \tfrac{\sigma_1^2}{2}\,\Delta_\xi\mu^{(1,\tau)}_{m,t} \qquad \forall\,\tau\in\mathcal{T}$$
+
+This is a system of $|\mathcal{T}|$ coupled FPK equations — one per institution type. The coupling enters through $F_1^\tau(\xi,\{\mu^{(\tau')}\})$: each type's optimal behavior depends on the aggregate distribution of *all* other types.
+
+**Level 2 — Individual Institutions (within type $\tau$):**
+
+$$-\partial_t V^j_2 - H_2^j\!\left(x,\nabla_x V^j_2,\mu^{(2,\tau)}_t,\xi^{m,\tau(j)}_t\right) = 0$$
+
+$$\partial_t \mu^{(2,\tau)}_t + \nabla_x\cdot\!\left(b^{\tau,*}_2\,\mu^{(2,\tau)}_t\right) = \tfrac{\sigma_2^2}{2}\,\Delta_x\mu^{(2,\tau)}_t + \mathcal{L}^\eta\mu^{(2,\tau)}_t$$
+
+The Lévy generator $\mathcal{L}^\eta$ appears at Level 2 — institutions are large enough that their strategic coordination produces observable jump discontinuities (Quant Quake 2007 was $\mathcal{L}^\eta$ firing at Level 2).
+
+**Level 3 — Individuals within institution $j$:**
+
+$$-\partial_t V^{i,j}_3 - H_3^{i,j}\!\left(y,\nabla_y V^{i,j}_3,\mu^{(3,j)}_t,x^j_t\right) = 0$$
+
+$$\partial_t \mu^{(3,j)}_t + \nabla_y\cdot\!\left(b^{j,*}_3\,\mu^{(3,j)}_t\right) = \tfrac{\sigma_3^2}{2}\,\Delta_y\mu^{(3,j)}_t$$
+
+**Coupling conditions (upward: aggregate behavior feeds into next level's environment):**
+
+$$b^{m,*}_0\text{ depends on }\Psi^{(1\to0)}_m = \int\varphi_0(\xi)\,\mu^{(1)}_{m,t}(d\xi), \quad b^{\tau,*}_1\text{ on }\Psi^{(2\to1)}_\tau = \int\varphi_1(x)\,\mu^{(2,\tau)}_t(dx), \quad b^{j,*}_2\text{ on }\Psi^{(3\to2)}_j = \int\varphi_2(y)\,\mu^{(3,j)}_t(dy)$$
+
+**Existence and uniqueness (Theorem 7.4, Extended).** Under Lasry-Lions monotonicity at every level:
+$$\int\!\!\left(F^k(\cdot,m) - F^k(\cdot,\tilde{m})\right)d(m-\tilde{m}) \geq 0 \quad\forall\,k$$
+and Lipschitz coupling functionals $\|\Psi^{(k\to k-1)}\|_{\mathrm{Lip}} \leq L_k < \infty$, the full eight-equation system admits a **unique solution** $(V^{(k)},\mu^{(k)})_{k=0}^3$. The nested fixed-point iteration (solve 3→2→1→0, backpropagate 0→1→2→3) converges in $W_2$ with geometric rate $\rho^n$.
+
+---
 
 ### Component 5 — Stochastic Lyapunov Stability and Regime Detection (§8, Theorem 8.2)
 
