@@ -6,6 +6,6 @@
       <circle cx="190.71" cy="49.29" r="30" fill="black"/>
     </mask>
   </defs>
-  <circle cx="120" cy="120" r="100" fill="#111111" mask="url(#bite)"/>
-  <circle cx="190.71" cy="49.29" r="11.5" fill="#111111"/>
+  <circle cx="120" cy="120" r="100" fill="#FFFFFF" mask="url(#bite)"/>
+  <circle cx="190.71" cy="49.29" r="11.5" fill="#FFFFFF"/>
 </svg>

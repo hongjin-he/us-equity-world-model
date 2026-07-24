@@ -1,6 +1,9 @@
 <div align="center">
 
-<img src="figures/microworld_logo.svg" width="200" alt="MicroWorld"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/microworld_logo_dark.svg">
+  <img src="figures/microworld_logo.svg" width="170" alt="MicroWorld"/>
+</picture>
 
 # MicroWorld
 
