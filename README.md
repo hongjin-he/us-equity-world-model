@@ -3,14 +3,15 @@
 <img src="figures/microworld_logo.svg" width="200" alt="MicroWorld"/>
 
 # MicroWorld
-
-**第一個為量化金融打造的世界模型架構：多層平均場博弈建模 + 市場價格預測**
-
-**超越傳統因子挖掘的量化金融新範式**
-
 *The first world model architecture designed for quantitative finance:*  
 *Multi-layer mean-field game modeling + market price prediction*  
 *A new paradigm in quantitative finance that transcends traditional factor mining*
+
+**第一個為量化金融打造的世界模型架構**
+
+**超越傳統因子挖掘的量化金融新範式**
+
+
 
 ---
 
