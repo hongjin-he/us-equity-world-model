@@ -1,0 +1,445 @@
+<svg viewBox="0 0 1100 800" xmlns="http://www.w3.org/2000/svg"
+     font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <!-- Level gradients -->
+    <linearGradient id="gSov" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A365D"/><stop offset="100%" stop-color="#2B6CB0"/>
+    </linearGradient>
+    <linearGradient id="gInst" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#322659"/><stop offset="100%" stop-color="#553C9A"/>
+    </linearGradient>
+    <linearGradient id="gMicro" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1C4532"/><stop offset="100%" stop-color="#276749"/>
+    </linearGradient>
+    <linearGradient id="gEq" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#744210"/><stop offset="100%" stop-color="#C05621"/>
+    </linearGradient>
+    <linearGradient id="gBgSov" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EBF8FF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#BEE3F8" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="gBgInst" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FAF5FF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#E9D8FD" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="gBgMicro" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F0FFF4" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#C6F6D5" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <!-- Arrow markers -->
+    <marker id="aDown" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,1.5 L9,5 L0,8.5 Z" fill="#4A5568"/>
+    </marker>
+    <marker id="aUp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="180">
+      <path d="M0,1.5 L9,5 L0,8.5 Z" fill="#718096"/>
+    </marker>
+    <marker id="aCompete" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,1.5 L9,5 L0,8.5 Z" fill="#C53030"/>
+    </marker>
+    <marker id="aCoopR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,1.5 L9,5 L0,8.5 Z" fill="#276749"/>
+    </marker>
+    <marker id="aCoopL" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="180">
+      <path d="M0,1.5 L9,5 L0,8.5 Z" fill="#276749"/>
+    </marker>
+    <marker id="aOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0,1.5 L9,5 L0,8.5 Z" fill="#C05621"/>
+    </marker>
+
+    <filter id="sh" x="-6%" y="-6%" width="112%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.18"/>
+    </filter>
+    <filter id="shSm" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- ══ Full background ══ -->
+  <rect width="1100" height="800" fill="#F7FAFC" rx="12"/>
+
+  <!-- ══ TITLE ══ -->
+  <text x="550" y="30" text-anchor="middle" font-size="18" font-weight="800" fill="#1A202C" letter-spacing="0.3">
+    The Financial Market as a Multi-Level Competitive System
+  </text>
+  <text x="550" y="50" text-anchor="middle" font-size="10.5" fill="#718096">
+    50,000+ institutional players · 500M+ retail participants · 30 central banks · all playing simultaneously — at different timescales, objectives, and information sets
+  </text>
+  <line x1="20" y1="60" x2="1080" y2="60" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- LEVEL 1: SOVEREIGN MACRO LAYER -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <rect x="15" y="67" width="1070" height="148" rx="10" fill="url(#gBgSov)" stroke="#2B6CB0" stroke-width="2" filter="url(#sh)"/>
+  <!-- Level label -->
+  <rect x="15" y="67" width="1070" height="36" rx="10" fill="url(#gSov)"/>
+  <rect x="15" y="91" width="1070" height="12" fill="#2B6CB0"/>
+  <text x="550" y="88" text-anchor="middle" font-size="12" font-weight="700" fill="white" letter-spacing="0.5">
+    LEVEL I — SOVEREIGN &amp; MACRO LAYER    ·    Mean-Field Control (MFC): Social Planner Objective
+  </text>
+  <text x="550" y="101" text-anchor="middle" font-size="8.5" fill="#BEE3F8">
+    Timescale: months–years  ·  Objective: price stability / economic mandate / capital allocation  ·  Instruments: interest rates, QE, regulation, tariffs
+  </text>
+
+  <!-- Sovereign agent boxes -->
+  <!-- Fed -->
+  <rect x="28"  y="115" width="148" height="88" rx="8" fill="white" fill-opacity="0.90" stroke="#2B6CB0" stroke-width="1.8" filter="url(#shSm)"/>
+  <rect x="28"  y="115" width="148" height="22" rx="8" fill="#2B6CB0"/>
+  <rect x="28"  y="129" width="148" height="8"  fill="#2B6CB0"/>
+  <text x="102" y="128" text-anchor="middle" font-size="10" font-weight="700" fill="white">🇺🇸 US Federal Reserve</text>
+  <text x="102" y="147" text-anchor="middle" font-size="8.5" fill="#2C5282">FFR · QE/QT · IORB</text>
+  <text x="102" y="160" text-anchor="middle" font-size="8" fill="#4A5568">Controls: global USD supply</text>
+  <text x="102" y="173" text-anchor="middle" font-size="8" fill="#4A5568">Impact: ALL asset classes</text>
+  <text x="102" y="186" text-anchor="middle" font-size="8" fill="#C05621" font-weight="600">Type II operator: Λ_Fed ⊗ I_d</text>
+  <text x="102" y="198" text-anchor="middle" font-size="8" fill="#718096">Balance sheet: $7.7T</text>
+
+  <!-- ECB -->
+  <rect x="200" y="115" width="148" height="88" rx="8" fill="white" fill-opacity="0.90" stroke="#2B6CB0" stroke-width="1.8" filter="url(#shSm)"/>
+  <rect x="200" y="115" width="148" height="22" rx="8" fill="#2B6CB0"/>
+  <rect x="200" y="129" width="148" height="8"  fill="#2B6CB0"/>
+  <text x="274" y="128" text-anchor="middle" font-size="10" font-weight="700" fill="white">🇪🇺 European Central Bank</text>
+  <text x="274" y="147" text-anchor="middle" font-size="8.5" fill="#2C5282">EURIBOR · TLTRO · PEPP</text>
+  <text x="274" y="160" text-anchor="middle" font-size="8" fill="#4A5568">Controls: EUR zone rates</text>
+  <text x="274" y="173" text-anchor="middle" font-size="8" fill="#4A5568">Impact: EUR assets + FX</text>
+  <text x="274" y="186" text-anchor="middle" font-size="8" fill="#C05621" font-weight="600">Type II operator: Λ_ECB ⊗ I_d</text>
+  <text x="274" y="198" text-anchor="middle" font-size="8" fill="#718096">Balance sheet: €7.0T</text>
+
+  <!-- PBOC -->
+  <rect x="372" y="115" width="148" height="88" rx="8" fill="white" fill-opacity="0.90" stroke="#2B6CB0" stroke-width="1.8" filter="url(#shSm)"/>
+  <rect x="372" y="115" width="148" height="22" rx="8" fill="#2B6CB0"/>
+  <rect x="372" y="129" width="148" height="8"  fill="#2B6CB0"/>
+  <text x="446" y="128" text-anchor="middle" font-size="10" font-weight="700" fill="white">🇨🇳 PBOC · China</text>
+  <text x="446" y="147" text-anchor="middle" font-size="8.5" fill="#2C5282">MLF · LPR · FX reserve</text>
+  <text x="446" y="160" text-anchor="middle" font-size="8" fill="#4A5568">Controls: CNY + credit</text>
+  <text x="446" y="173" text-anchor="middle" font-size="8" fill="#4A5568">Impact: EM + commodities</text>
+  <text x="446" y="186" text-anchor="middle" font-size="8" fill="#C05621" font-weight="600">Type II operator: Λ_PBOC ⊗ I_d</text>
+  <text x="446" y="198" text-anchor="middle" font-size="8" fill="#718096">FX reserves: $3.2T</text>
+
+  <!-- BOJ -->
+  <rect x="544" y="115" width="148" height="88" rx="8" fill="white" fill-opacity="0.90" stroke="#2B6CB0" stroke-width="1.8" filter="url(#shSm)"/>
+  <rect x="544" y="115" width="148" height="22" rx="8" fill="#2B6CB0"/>
+  <rect x="544" y="129" width="148" height="8"  fill="#2B6CB0"/>
+  <text x="618" y="128" text-anchor="middle" font-size="10" font-weight="700" fill="white">🇯🇵 Bank of Japan</text>
+  <text x="618" y="147" text-anchor="middle" font-size="8.5" fill="#2C5282">YCC · JGB purchases</text>
+  <text x="618" y="160" text-anchor="middle" font-size="8" fill="#4A5568">Controls: JPY rates</text>
+  <text x="618" y="173" text-anchor="middle" font-size="8" fill="#4A5568">Impact: carry trade unwinding</text>
+  <text x="618" y="186" text-anchor="middle" font-size="8" fill="#C05621" font-weight="600">YCC → global bond repricing</text>
+  <text x="618" y="198" text-anchor="middle" font-size="8" fill="#718096">Balance sheet: ¥754T (~$5T)</text>
+
+  <!-- BIS -->
+  <rect x="716" y="115" width="172" height="88" rx="8" fill="white" fill-opacity="0.90" stroke="#2B6CB0" stroke-width="1.8" filter="url(#shSm)"/>
+  <rect x="716" y="115" width="172" height="22" rx="8" fill="#2B6CB0"/>
+  <rect x="716" y="129" width="172" height="8"  fill="#2B6CB0"/>
+  <text x="802" y="128" text-anchor="middle" font-size="10" font-weight="700" fill="white">🏛 BIS / G20 / IMF</text>
+  <text x="802" y="147" text-anchor="middle" font-size="8.5" fill="#2C5282">Basel III · SIFI rules · capital floors</text>
+  <text x="802" y="160" text-anchor="middle" font-size="8" fill="#4A5568">Coordination: inter-sovereign</text>
+  <text x="802" y="173" text-anchor="middle" font-size="8" fill="#4A5568">Impact: systemic risk rules</text>
+  <text x="802" y="186" text-anchor="middle" font-size="8" fill="#C05621" font-weight="600">Sets rules for ALL levels below</text>
+  <text x="802" y="198" text-anchor="middle" font-size="8" fill="#718096">"Central bank of central banks"</text>
+
+  <!-- Sovereign competition arrows (horizontal, dashed red, bidirectional) -->
+  <line x1="176" y1="158" x2="195" y2="158" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#aCompete)"/>
+  <line x1="195" y1="152" x2="176" y2="152" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#aCompete)"/>
+  <line x1="348" y1="158" x2="367" y2="158" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#aCompete)"/>
+  <line x1="367" y1="152" x2="348" y2="152" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#aCompete)"/>
+  <line x1="520" y1="158" x2="539" y2="158" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#aCompete)"/>
+  <line x1="539" y1="152" x2="520" y2="152" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#aCompete)"/>
+  <line x1="692" y1="158" x2="711" y2="158" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#aCompete)"/>
+  <line x1="711" y1="152" x2="692" y2="152" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#aCompete)"/>
+
+  <!-- Sovereign→Institution arrows: policy down + aggregate behavior up -->
+  <text x="893" y="138" font-size="8.5" fill="#2C5282" font-weight="600">Competition:</text>
+  <line x1="896" y1="143" x2="920" y2="143" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="925" y="147" font-size="8" fill="#718096">currency wars / rate divergence</text>
+  <text x="893" y="162" font-size="8.5" fill="#276749" font-weight="600">Coordination:</text>
+  <line x1="896" y1="167" x2="920" y2="167" stroke="#276749" stroke-width="1.5"/>
+  <text x="925" y="171" font-size="8" fill="#718096">G7 / swap lines / BIS rules</text>
+  <text x="893" y="186" font-size="8.5" fill="#4A5568" font-weight="600">Model: MFC</text>
+  <text x="893" y="198" font-size="8" fill="#718096">(social planner, Theorem 7.4)</text>
+
+  <!-- ══ Coupling arrows: Level 1 → Level 2 ══ -->
+  <line x1="102" y1="203" x2="102" y2="235" stroke="#4A5568" stroke-width="2" marker-end="url(#aDown)"/>
+  <line x1="274" y1="203" x2="274" y2="235" stroke="#4A5568" stroke-width="2" marker-end="url(#aDown)"/>
+  <line x1="446" y1="203" x2="446" y2="235" stroke="#4A5568" stroke-width="2" marker-end="url(#aDown)"/>
+  <line x1="618" y1="203" x2="618" y2="235" stroke="#4A5568" stroke-width="2" marker-end="url(#aDown)"/>
+  <line x1="102" y1="235" x2="102" y2="203" stroke="#A0AEC0" stroke-width="1.2" stroke-dasharray="3,3" marker-end="url(#aUp)"/>
+
+  <!-- Coupling labels -->
+  <rect x="340" y="210" width="310" height="18" rx="4" fill="#2D3748"/>
+  <text x="495" y="223" text-anchor="middle" font-size="8.5" fill="white" font-weight="600">
+    ↓ Policy: rates · capital controls · regulatory limits on leverage · reserve requirements
+  </text>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- LEVEL 2: INSTITUTIONAL LAYER -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <rect x="15" y="238" width="1070" height="248" rx="10" fill="url(#gBgInst)" stroke="#553C9A" stroke-width="2" filter="url(#sh)"/>
+  <rect x="15" y="238" width="1070" height="36" rx="10" fill="url(#gInst)"/>
+  <rect x="15" y="262" width="1070" height="12" fill="#553C9A"/>
+  <text x="550" y="259" text-anchor="middle" font-size="12" font-weight="700" fill="white" letter-spacing="0.5">
+    LEVEL II — INSTITUTIONAL PLAYER LAYER    ·    Mean-Field Game (MFG): Nash Equilibrium
+  </text>
+  <text x="550" y="272" text-anchor="middle" font-size="8.5" fill="#D6BCFA">
+    Timescale: days–months  ·  Objective: risk-adjusted return  ·  Interact: via price impact, information asymmetry, prime brokerage
+  </text>
+
+  <!-- 4 category columns -->
+  <!-- Hedge Funds -->
+  <rect x="28" y="282" width="245" height="195" rx="8" fill="white" fill-opacity="0.70" stroke="#553C9A" stroke-width="1.5"/>
+  <rect x="28" y="282" width="245" height="22" rx="8" fill="#553C9A" fill-opacity="0.85"/>
+  <rect x="28" y="296" width="245" height="8"  fill="#553C9A" fill-opacity="0.85"/>
+  <text x="150" y="296" text-anchor="middle" font-size="10" font-weight="700" fill="white">Systematic Hedge Funds</text>
+  <!-- HF boxes -->
+  <rect x="36"  y="310" width="110" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="91" y="325" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">Renaissance Techn.</text>
+  <text x="91" y="338" text-anchor="middle" font-size="8" fill="#553C9A">Medallion Fund  AUM: $165B</text>
+  <text x="91" y="350" text-anchor="middle" font-size="7.5" fill="#4A5568">Pure quant · 30yr Sharpe &gt;2</text>
+
+  <rect x="154" y="310" width="110" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="209" y="325" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">Citadel LLC</text>
+  <text x="209" y="338" text-anchor="middle" font-size="8" fill="#553C9A">Multi-strat  AUM: $65B</text>
+  <text x="209" y="350" text-anchor="middle" font-size="7.5" fill="#4A5568">HFT + macro + equity L/S</text>
+
+  <rect x="36"  y="364" width="110" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="91" y="379" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">DE Shaw</text>
+  <text x="91" y="392" text-anchor="middle" font-size="8" fill="#553C9A">Quant  AUM: $60B</text>
+  <text x="91" y="404" text-anchor="middle" font-size="7.5" fill="#4A5568">Systematic multi-asset</text>
+
+  <rect x="154" y="364" width="110" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="209" y="379" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">Millennium Mgmt</text>
+  <text x="209" y="392" text-anchor="middle" font-size="8" fill="#553C9A">Multi-PM  AUM: $68B</text>
+  <text x="209" y="404" text-anchor="middle" font-size="7.5" fill="#4A5568">500+ independent PMs</text>
+
+  <rect x="36"  y="418" width="228" height="52" rx="5" fill="#553C9A" fill-opacity="0.08" stroke="#553C9A" stroke-width="1"/>
+  <text x="150" y="433" text-anchor="middle" font-size="8.5" fill="#44337A" font-weight="600">Internal game within each fund:</text>
+  <text x="150" y="447" text-anchor="middle" font-size="8" fill="#4A5568">PMs compete for capital allocation · risk budgets</text>
+  <text x="150" y="460" text-anchor="middle" font-size="8" fill="#553C9A" font-weight="600">→ Intra-firm MFG (500 Millennium PMs)</text>
+
+  <!-- Prime Brokers -->
+  <rect x="287" y="282" width="245" height="195" rx="8" fill="white" fill-opacity="0.70" stroke="#553C9A" stroke-width="1.5"/>
+  <rect x="287" y="282" width="245" height="22" rx="8" fill="#553C9A" fill-opacity="0.85"/>
+  <rect x="287" y="296" width="245" height="8"  fill="#553C9A" fill-opacity="0.85"/>
+  <text x="409" y="296" text-anchor="middle" font-size="10" font-weight="700" fill="white">Prime Brokers / Banks</text>
+
+  <rect x="295" y="310" width="110" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="350" y="325" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">Goldman Sachs</text>
+  <text x="350" y="338" text-anchor="middle" font-size="8" fill="#553C9A">PB · prop · market-making</text>
+  <text x="350" y="350" text-anchor="middle" font-size="7.5" fill="#4A5568">Sees 40% of hedge fund flow</text>
+
+  <rect x="413" y="310" width="110" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="468" y="325" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">JPMorgan Chase</text>
+  <text x="468" y="338" text-anchor="middle" font-size="8" fill="#553C9A">PB · repo · custody</text>
+  <text x="468" y="350" text-anchor="middle" font-size="7.5" fill="#4A5568">Largest derivatives book</text>
+
+  <rect x="295" y="364" width="110" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="350" y="379" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">Morgan Stanley</text>
+  <text x="350" y="392" text-anchor="middle" font-size="8" fill="#553C9A">PB · fixed income</text>
+  <text x="350" y="404" text-anchor="middle" font-size="7.5" fill="#4A5568">~15% equity PB market share</text>
+
+  <rect x="413" y="364" width="110" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="468" y="379" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">UBS / Barclays</text>
+  <text x="468" y="392" text-anchor="middle" font-size="8" fill="#553C9A">PB · structured products</text>
+  <text x="468" y="404" text-anchor="middle" font-size="7.5" fill="#4A5568">European-centric flows</text>
+
+  <rect x="295" y="418" width="228" height="52" rx="5" fill="#276749" fill-opacity="0.08" stroke="#276749" stroke-width="1"/>
+  <text x="409" y="433" text-anchor="middle" font-size="8.5" fill="#276749" font-weight="600">Cooperation with clients:</text>
+  <text x="409" y="447" text-anchor="middle" font-size="8" fill="#4A5568">Securities lending · financing · execution · custody</text>
+  <text x="409" y="460" text-anchor="middle" font-size="8" fill="#C05621" font-weight="600">But also: front-running risk? Information asymmetry!</text>
+
+  <!-- Asset Managers -->
+  <rect x="546" y="282" width="245" height="195" rx="8" fill="white" fill-opacity="0.70" stroke="#553C9A" stroke-width="1.5"/>
+  <rect x="546" y="282" width="245" height="22" rx="8" fill="#553C9A" fill-opacity="0.85"/>
+  <rect x="546" y="296" width="245" height="8"  fill="#553C9A" fill-opacity="0.85"/>
+  <text x="668" y="296" text-anchor="middle" font-size="10" font-weight="700" fill="white">Asset Managers / ETFs</text>
+
+  <rect x="554" y="310" width="110" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="609" y="325" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">BlackRock</text>
+  <text x="609" y="338" text-anchor="middle" font-size="8" fill="#553C9A">Passive + active  AUM: $10T</text>
+  <text x="609" y="350" text-anchor="middle" font-size="7.5" fill="#4A5568">Aladdin risk system: 20T+ assets</text>
+
+  <rect x="672" y="310" width="110" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="727" y="325" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">Vanguard</text>
+  <text x="727" y="338" text-anchor="middle" font-size="8" fill="#553C9A">Index  AUM: $9.5T</text>
+  <text x="727" y="350" text-anchor="middle" font-size="7.5" fill="#4A5568">Price-agnostic buying</text>
+
+  <rect x="554" y="364" width="110" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="609" y="379" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">Bridgewater</text>
+  <text x="609" y="392" text-anchor="middle" font-size="8" fill="#553C9A">Macro  AUM: $150B</text>
+  <text x="609" y="404" text-anchor="middle" font-size="7.5" fill="#4A5568">All-Weather risk parity</text>
+
+  <rect x="672" y="364" width="110" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="727" y="379" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">Fidelity / PIMCO</text>
+  <text x="727" y="392" text-anchor="middle" font-size="8" fill="#553C9A">Active  AUM: ~$5T+</text>
+  <text x="727" y="404" text-anchor="middle" font-size="7.5" fill="#4A5568">Bond + equity active mgmt</text>
+
+  <rect x="554" y="418" width="228" height="52" rx="5" fill="#553C9A" fill-opacity="0.08" stroke="#553C9A" stroke-width="1"/>
+  <text x="668" y="433" text-anchor="middle" font-size="8.5" fill="#44337A" font-weight="600">The passive paradox:</text>
+  <text x="668" y="447" text-anchor="middle" font-size="8" fill="#4A5568">$30T in passive ETFs → correlated rebalancing</text>
+  <text x="668" y="460" text-anchor="middle" font-size="8" fill="#C05621" font-weight="600">Price-agnostic flow amplifies volatility (MFG shows why)</text>
+
+  <!-- SWF / Pension -->
+  <rect x="805" y="282" width="268" height="195" rx="8" fill="white" fill-opacity="0.70" stroke="#553C9A" stroke-width="1.5"/>
+  <rect x="805" y="282" width="268" height="22" rx="8" fill="#553C9A" fill-opacity="0.85"/>
+  <rect x="805" y="296" width="268" height="8"  fill="#553C9A" fill-opacity="0.85"/>
+  <text x="939" y="296" text-anchor="middle" font-size="10" font-weight="700" fill="white">Sovereign Wealth / Pension</text>
+
+  <rect x="813" y="310" width="118" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="872" y="325" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">Norges Bank (NBIM)</text>
+  <text x="872" y="338" text-anchor="middle" font-size="8" fill="#553C9A">SWF  AUM: $1.7T</text>
+  <text x="872" y="350" text-anchor="middle" font-size="7.5" fill="#4A5568">Owns ~1.5% of all global equities</text>
+
+  <rect x="940" y="310" width="124" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="1002" y="325" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">GIC Singapore</text>
+  <text x="1002" y="338" text-anchor="middle" font-size="8" fill="#553C9A">SWF  AUM: $770B+</text>
+  <text x="1002" y="350" text-anchor="middle" font-size="7.5" fill="#4A5568">Patient capital, 20yr horizon</text>
+
+  <rect x="813" y="364" width="118" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="872" y="379" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">CalPERS</text>
+  <text x="872" y="392" text-anchor="middle" font-size="8" fill="#553C9A">Pension  AUM: $490B</text>
+  <text x="872" y="404" text-anchor="middle" font-size="7.5" fill="#4A5568">Liability-driven, long horizon</text>
+
+  <rect x="940" y="364" width="124" height="46" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="1002" y="379" text-anchor="middle" font-size="9.5" font-weight="700" fill="#44337A">ADIA / CIC / PIF</text>
+  <text x="1002" y="392" text-anchor="middle" font-size="8" fill="#553C9A">SWF  Combined: $3T+</text>
+  <text x="1002" y="404" text-anchor="middle" font-size="7.5" fill="#4A5568">Gulf / China SWF block</text>
+
+  <rect x="813" y="418" width="252" height="52" rx="5" fill="#553C9A" fill-opacity="0.08" stroke="#553C9A" stroke-width="1"/>
+  <text x="939" y="433" text-anchor="middle" font-size="8.5" fill="#44337A" font-weight="600">Strategic vs. tactical tension:</text>
+  <text x="939" y="447" text-anchor="middle" font-size="8" fill="#4A5568">Long-horizon mandate collides with mark-to-market losses</text>
+  <text x="939" y="460" text-anchor="middle" font-size="8" fill="#C05621" font-weight="600">MFG mixed: MFC internally + Nash vs. peers</text>
+
+  <!-- Inter-category competition arrows (horizontal, Level 2) -->
+  <line x1="273" y1="392" x2="282" y2="392" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#aCompete)"/>
+  <line x1="282" y1="386" x2="273" y2="386" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#aCompete)"/>
+  <line x1="532" y1="392" x2="541" y2="392" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#aCompete)"/>
+  <line x1="541" y1="386" x2="532" y2="386" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#aCompete)"/>
+  <line x1="791" y1="392" x2="800" y2="392" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#aCompete)"/>
+  <line x1="800" y1="386" x2="791" y2="386" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#aCompete)"/>
+
+  <!-- Cooperation prime brokerage arrows -->
+  <line x1="273" y1="370" x2="282" y2="370" stroke="#276749" stroke-width="1.5" marker-end="url(#aCoopR)"/>
+  <line x1="532" y1="370" x2="541" y2="370" stroke="#276749" stroke-width="1.5" marker-end="url(#aCoopR)"/>
+
+  <!-- ══ Coupling arrows: Level 2 → Level 3 ══ -->
+  <line x1="200" y1="477" x2="200" y2="503" stroke="#4A5568" stroke-width="2" marker-end="url(#aDown)"/>
+  <line x1="400" y1="477" x2="400" y2="503" stroke="#4A5568" stroke-width="2" marker-end="url(#aDown)"/>
+  <line x1="650" y1="477" x2="650" y2="503" stroke="#4A5568" stroke-width="2" marker-end="url(#aDown)"/>
+  <line x1="200" y1="503" x2="200" y2="477" stroke="#A0AEC0" stroke-width="1.2" stroke-dasharray="3,3" marker-end="url(#aUp)"/>
+
+  <rect x="330" y="480" width="370" height="18" rx="4" fill="#2D3748"/>
+  <text x="515" y="493" text-anchor="middle" font-size="8.5" fill="white" font-weight="600">
+    ↓ Capital allocation · risk budget · return targets  ↑ P&amp;L contribution · position reports
+  </text>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- LEVEL 3: MICRO AGENT LAYER -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <rect x="15" y="506" width="1070" height="220" rx="10" fill="url(#gBgMicro)" stroke="#276749" stroke-width="2" filter="url(#sh)"/>
+  <rect x="15" y="506" width="1070" height="36" rx="10" fill="url(#gMicro)"/>
+  <rect x="15" y="530" width="1070" height="12" fill="#276749"/>
+  <text x="550" y="527" text-anchor="middle" font-size="12" font-weight="700" fill="white" letter-spacing="0.5">
+    LEVEL III — MICRO AGENT LAYER    ·    Individual Optimization + Intra-Firm Competition
+  </text>
+  <text x="550" y="540" text-anchor="middle" font-size="8.5" fill="#C6F6D5">
+    Timescale: milliseconds–weeks  ·  Objective: personal/desk P&amp;L  ·  Interact: order flow, signal sharing, risk limit negotiation
+  </text>
+
+  <!-- One institutional expanded (Citadel example) -->
+  <rect x="28" y="550" width="390" height="166" rx="8" fill="white" fill-opacity="0.80" stroke="#276749" stroke-width="1.8" filter="url(#shSm)"/>
+  <rect x="28" y="550" width="390" height="22" rx="8" fill="#276749"/>
+  <rect x="28" y="564" width="390" height="8" fill="#276749"/>
+  <text x="223" y="565" text-anchor="middle" font-size="10" font-weight="700" fill="white">Inside Citadel — Competition Between Desks</text>
+
+  <rect x="36"  y="578" width="82" height="52" rx="5" fill="#F0FFF4" stroke="#276749" stroke-width="1.2"/>
+  <text x="77" y="592" text-anchor="middle" font-size="8.5" font-weight="700" fill="#276749">Quant Equity</text>
+  <text x="77" y="605" text-anchor="middle" font-size="7.5" fill="#4A5568">Stat arb · factor</text>
+  <text x="77" y="618" text-anchor="middle" font-size="7.5" fill="#4A5568">Return: α₁ target</text>
+  <text x="77" y="628" text-anchor="middle" font-size="7.5" fill="#C05621">VaR budget: $B₁</text>
+
+  <rect x="126" y="578" width="82" height="52" rx="5" fill="#F0FFF4" stroke="#276749" stroke-width="1.2"/>
+  <text x="167" y="592" text-anchor="middle" font-size="8.5" font-weight="700" fill="#276749">Global Macro</text>
+  <text x="167" y="605" text-anchor="middle" font-size="7.5" fill="#4A5568">Rates · FX · vol</text>
+  <text x="167" y="618" text-anchor="middle" font-size="7.5" fill="#4A5568">Return: α₂ target</text>
+  <text x="167" y="628" text-anchor="middle" font-size="7.5" fill="#C05621">VaR budget: $B₂</text>
+
+  <rect x="216" y="578" width="82" height="52" rx="5" fill="#F0FFF4" stroke="#276749" stroke-width="1.2"/>
+  <text x="257" y="592" text-anchor="middle" font-size="8.5" font-weight="700" fill="#276749">HFT / Citadel Sec.</text>
+  <text x="257" y="605" text-anchor="middle" font-size="7.5" fill="#4A5568">Market-making · arb</text>
+  <text x="257" y="618" text-anchor="middle" font-size="7.5" fill="#4A5568">Sharpe: 3–5 target</text>
+  <text x="257" y="628" text-anchor="middle" font-size="7.5" fill="#C05621">≤10ms hold time</text>
+
+  <rect x="306" y="578" width="105" height="52" rx="5" fill="#FFF5F5" stroke="#E53E3E" stroke-width="1.2"/>
+  <text x="358" y="592" text-anchor="middle" font-size="8.5" font-weight="700" fill="#276749">Risk Management</text>
+  <text x="358" y="605" text-anchor="middle" font-size="7.5" fill="#4A5568">Firm-wide VaR · stress</text>
+  <text x="358" y="618" text-anchor="middle" font-size="7.5" fill="#4A5568">Correlation monitoring</text>
+  <text x="358" y="628" text-anchor="middle" font-size="7.5" fill="#C05621">Kill switch authority</text>
+
+  <!-- Intra-firm competition arrows -->
+  <line x1="118" y1="602" x2="121" y2="602" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="3,2" marker-end="url(#aCompete)"/>
+  <line x1="121" y1="608" x2="118" y2="608" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="3,2" marker-end="url(#aCompete)"/>
+  <line x1="208" y1="602" x2="211" y2="602" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="3,2" marker-end="url(#aCompete)"/>
+  <line x1="211" y1="608" x2="208" y2="608" stroke="#E53E3E" stroke-width="1.2" stroke-dasharray="3,2" marker-end="url(#aCompete)"/>
+  <!-- Risk → desks: cooperation -->
+  <line x1="306" y1="602" x2="303" y2="602" stroke="#276749" stroke-width="1.5" marker-end="url(#aCoopL)"/>
+
+  <text x="223" y="646" text-anchor="middle" font-size="8.5" fill="#C53030" font-weight="600">Desks compete for capital: ← "I need more VaR budget" →</text>
+  <text x="223" y="660" text-anchor="middle" font-size="8" fill="#276749">Risk mgmt cooperates: sets firm-wide limits, prevents blow-up</text>
+  <text x="223" y="675" text-anchor="middle" font-size="8.5" fill="#44337A" font-weight="600">This intra-firm tension = MFG within each institution (nested game)</text>
+  <text x="223" y="689" text-anchor="middle" font-size="8" fill="#4A5568">500 portfolio managers at Millennium: each is a sovereign within their pod</text>
+  <text x="223" y="703" text-anchor="middle" font-size="8" fill="#4A5568">Aggregating ξ^{j,u}: pod-level MFG → firm-level MFG → market-level MFG</text>
+
+  <!-- Retail Investor box -->
+  <rect x="436" y="550" width="285" height="166" rx="8" fill="white" fill-opacity="0.80" stroke="#276749" stroke-width="1.8" filter="url(#shSm)"/>
+  <rect x="436" y="550" width="285" height="22" rx="8" fill="#276749"/>
+  <rect x="436" y="564" width="285" height="8" fill="#276749"/>
+  <text x="578" y="565" text-anchor="middle" font-size="10" font-weight="700" fill="white">Retail Investors  (~500M globally)</text>
+
+  <text x="578" y="590" text-anchor="middle" font-size="9" fill="#2D3748" font-weight="600">The New Retail Phenomenon (Post-2020)</text>
+  <line x1="446" y1="596" x2="713" y2="596" stroke="#C6F6D5" stroke-width="1"/>
+  <text x="578" y="612" text-anchor="middle" font-size="8.5" fill="#4A5568">Robinhood / moomoo / Tiger Brokers → zero commission</text>
+  <text x="578" y="627" text-anchor="middle" font-size="8.5" fill="#4A5568">Same LLMs for investment advice → AI-homogenised flow</text>
+  <text x="578" y="642" text-anchor="middle" font-size="8.5" fill="#4A5568">Reddit / Twitter coordination → behavioral ν_η spikes</text>
+  <text x="578" y="657" text-anchor="middle" font-size="8.5" fill="#C05621" font-weight="600">GameStop (Jan 2021): ν_η rose 46×, σ_τ barely moved</text>
+  <line x1="446" y1="663" x2="713" y2="663" stroke="#C6F6D5" stroke-width="1"/>
+  <text x="578" y="678" text-anchor="middle" font-size="8.5" fill="#276749" font-weight="600">In our model: Level III agents with Lévy jump noise</text>
+  <text x="578" y="692" text-anchor="middle" font-size="8.5" fill="#4A5568">Their aggregate flow enters Level II via mean-field μ^(3)_{retail}</text>
+  <text x="578" y="706" text-anchor="middle" font-size="8" fill="#553C9A">As LLMs homogenise retail → behavioral term increasingly model-able</text>
+
+  <!-- HFT box -->
+  <rect x="735" y="550" width="340" height="166" rx="8" fill="white" fill-opacity="0.80" stroke="#276749" stroke-width="1.8" filter="url(#shSm)"/>
+  <rect x="735" y="550" width="340" height="22" rx="8" fill="#276749"/>
+  <rect x="735" y="564" width="340" height="8" fill="#276749"/>
+  <text x="905" y="565" text-anchor="middle" font-size="10" font-weight="700" fill="white">HFT Ecosystem  (~50% of US equity volume)</text>
+
+  <text x="905" y="590" text-anchor="middle" font-size="9" fill="#2D3748" font-weight="600">Micro-Structure as a Game</text>
+  <line x1="745" y1="596" x2="1067" y2="596" stroke="#C6F6D5" stroke-width="1"/>
+  <text x="905" y="612" text-anchor="middle" font-size="8.5" fill="#4A5568">Market-makers: Virtu, Citadel Sec., Jane Street — quote competition</text>
+  <text x="905" y="627" text-anchor="middle" font-size="8.5" fill="#4A5568">Latency arms race: co-location at NYSE · nanosecond advantages</text>
+  <text x="905" y="642" text-anchor="middle" font-size="8.5" fill="#4A5568">Bid-ask spread = Nash equilibrium of market-maker game</text>
+  <text x="905" y="657" text-anchor="middle" font-size="8.5" fill="#C05621" font-weight="600">Our model: Level III MFC — social welfare = minimize transaction cost</text>
+  <line x1="745" y1="663" x2="1067" y2="663" stroke="#C6F6D5" stroke-width="1"/>
+  <text x="905" y="678" text-anchor="middle" font-size="8.5" fill="#276749" font-weight="600">Emergent: bid-ask spreads &amp; market depth from Level III equilibrium</text>
+  <text x="905" y="692" text-anchor="middle" font-size="8.5" fill="#4A5568">Input to Level II: determines execution cost and slippage for all above</text>
+  <text x="905" y="706" text-anchor="middle" font-size="8" fill="#553C9A">HFT Level III ← most frequent MFG update: every 15min</text>
+
+  <!-- ══ Bottom: Emergent equilibrium bar ══ -->
+  <rect x="15" y="737" width="1070" height="50" rx="8" fill="url(#gEq)" filter="url(#sh)"/>
+  <text x="550" y="756" text-anchor="middle" font-size="12" font-weight="700" fill="white" letter-spacing="0.5">
+    MARKET PRICE = EMERGENT NASH EQUILIBRIUM  ·  P(t) = ∫∫∫ α*(x,ξ,m) · m^(3)(dx) · m^(2)(dξ) · ν^(1)(dΓ)
+  </text>
+  <text x="550" y="775" text-anchor="middle" font-size="9.5" fill="#FEFCBF">
+    The price you observe on your screen is the real-time summary statistic of this entire three-level game — updated every millisecond.
+    No single player controls it. Every player influences it.
+  </text>
+
+  <!-- Legend -->
+  <line x1="30" y1="795" x2="55" y2="795" stroke="#E53E3E" stroke-width="1.8" stroke-dasharray="5,3"/>
+  <text x="60" y="799" font-size="8.5" fill="#C53030">Competition (zero-sum: my gain = your loss)</text>
+  <line x1="290" y1="795" x2="315" y2="795" stroke="#276749" stroke-width="1.8"/>
+  <text x="320" y="799" font-size="8.5" fill="#276749">Cooperation (positive-sum: flow, services, risk-sharing)</text>
+  <line x1="565" y1="795" x2="590" y2="795" stroke="#4A5568" stroke-width="2"/>
+  <text x="595" y="799" font-size="8.5" fill="#4A5568">Policy/Capital flow (cross-level coupling)</text>
+  <rect x="820" y="790" width="9" height="9" rx="2" fill="#EDE9FE" stroke="#553C9A" stroke-width="1"/>
+  <text x="834" y="799" font-size="8.5" fill="#553C9A">MFG/MFC institution  ·  model type shown in each box</text>
+
+</svg>
