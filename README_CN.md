@@ -26,7 +26,7 @@
 
 **[English](README.md) | [中文文档](README_CN.md)**
 
-**Alpha Flow Research · 何鸿锦 · 香港科技大学 / 斯坦福 IHP · 2026年7月**
+**Alpha Flow Research · 何泓锦 · 香港科技大学 / 斯坦福 IHP · 2026年7月**
 
 ---
 
