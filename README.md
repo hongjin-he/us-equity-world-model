@@ -1,13 +1,33 @@
 <div align="center">
 
-# A Mathematical Theory of World Models in Financial Markets
+<img src="figures/microworld_logo.svg" width="200" alt="MicroWorld"/>
 
-### The First Complete Framework for Modelling Financial Markets as Multi-Level Competitive Systems
+# MicroWorld
+
+**第一個為量化金融打造的世界模型架構：多層平均場博弈建模 + 市場價格預測**
+
+**超越傳統因子挖掘的量化金融新範式**
+
+*The first world model architecture designed for quantitative finance:*  
+*Multi-layer mean-field game modeling + market price prediction*  
+*A new paradigm in quantitative finance that transcends traditional factor mining*
+
+---
+
+[![Stars](https://img.shields.io/github/stars/hongjin-he/World-Model-For-Quant-Company?style=social)](https://github.com/hongjin-he/World-Model-For-Quant-Company/stargazers)
+[![Forks](https://img.shields.io/github/forks/hongjin-he/World-Model-For-Quant-Company?style=social)](https://github.com/hongjin-he/World-Model-For-Quant-Company/network/members)
+[![Watchers](https://img.shields.io/github/watchers/hongjin-he/World-Model-For-Quant-Company?style=social)](https://github.com/hongjin-he/World-Model-For-Quant-Company/watchers)
 
 [![Paper](https://img.shields.io/badge/companion%20paper-Alpha%20Flow%2002-red.svg)](https://github.com/hongjin-he/mathmatical-framework-for-world-models-in-quant-finance)
-[![Implementation](https://img.shields.io/badge/engineering%20implementation-E--Game--C-blueviolet.svg)](https://github.com/hongjin-he/us-equity-world-model)
+[![Implementation](https://img.shields.io/badge/engineering%20repo-MicroWorld--Impl-blueviolet.svg)](https://github.com/hongjin-he/us-equity-world-model)
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+[![X](https://img.shields.io/badge/𝕏-Mr__Abstractor-000000?logo=x&logoColor=white)](https://x.com/Mr_Abstractor)
+[![Instagram](https://img.shields.io/badge/Instagram-mr.abstractor__ust-E4405F?logo=instagram&logoColor=white)](https://www.instagram.com/mr.abstractor_ust/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-HongJin%20HE-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hongjinhe-hkust-edu)
+
+**[English](README.md) | [中文文档](README_CN.md)**
 
 **Alpha Flow Research · HongJin HE · HKUST / Stanford IHP · July 2026**
 
